@@ -14,7 +14,7 @@ class BabylonNode(Node):
 
     def __init__(
             self,
-            grid=[['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['*']],
+            grid=[['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['*', '-', '-', '-']],
             parent=None,
             movement=None):
         """Create a BabylonNode.
