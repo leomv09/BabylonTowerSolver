@@ -82,6 +82,32 @@ class BabylonNode(Node):
                 default_movements.append(('R', row, col_movs))
         return default_movements
 
+    def __downwards_movements(self, gap_row):
+        """Get the downwards movements for th gap if applies
+
+        parameters:
+            [int] gap_row -- The gap row index to init the range.
+        :return:
+            [list] Downwards movements. Empty if can't go down.
+        """
+        downwards_movements = []
+        rows_below = self.rows - gap_row
+        for shifts in range(1, rows_below):
+            downwards_movements.append(('D', '*', shifts))
+        return downwards_movements
+
+    def __upward_movements(self, gap_row):
+        """Get the upwards movements for th gap if applies
+        avoiding any locked spot
+
+        parameters:
+            [int] gap_row -- The gap row index to end the range.
+        :return:
+            [list] Upward movements. Empty if can't go Up.
+        """
+        upwards_movements = []
+        return upwards_movements
+
     def _valid_movements(self):
         """Get all the movements that can be done from this node.
 
@@ -89,6 +115,8 @@ class BabylonNode(Node):
             [list] The list of valid movements.
         """
         valid_movements = self.__default_movements()
+        gap_row = self.gap_index[0]
+        valid_movements.extend(self.__downwards_movements(gap_row))
         return valid_movements
 
 
