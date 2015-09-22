@@ -15,7 +15,12 @@ class BabylonNode(Node):
 
     def __init__(
             self,
-            grid=[['*', '-', '-', '-'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y']],
+            grid=[
+                ['*', '-', '-', '-'],
+                ['R', 'G', 'B', 'Y'],
+                ['R', 'G', 'B', 'Y'],
+                ['R', 'G', 'B', 'Y'],
+                ['R', 'G', 'B', 'Y']],
             parent=None,
             movement=None):
         """Create a BabylonNode.
@@ -64,13 +69,28 @@ class BabylonNode(Node):
                     return (i, j)
         return None
 
+    def __default_movements(self):
+        """Get the default movements for any BabylonNode
+
+        :return:
+            [list] Default movements for Left and Right shifts
+        """
+        default_movements = []
+        for row in range(0, self.rows):
+            for col_movs in range(1, self.cols):
+                default_movements.append(('L', row, col_movs))
+                default_movements.append(('R', row, col_movs))
+        return default_movements
+
     def _valid_movements(self):
         """Get all the movements that can be done from this node.
 
         return:
             [list] The list of valid movements.
         """
-        return []
+        valid_movements = self.__default_movements()
+        return valid_movements
+
 
     def _apply(self, movement):
         """Get the resulting node by applying a movement to this node.
