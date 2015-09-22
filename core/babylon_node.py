@@ -77,9 +77,9 @@ class BabylonNode(Node):
         """
         default_movements = []
         for row in range(0, self.rows):
-            for col_movs in range(1, self.cols):
-                default_movements.append(('L', row, col_movs))
-                default_movements.append(('R', row, col_movs))
+            default_movements.append(('R', row, 1))
+            default_movements.append(('L', row, 1))
+            default_movements.append(('R', row, 2))
         return default_movements
 
     def __downward_movements(self):
