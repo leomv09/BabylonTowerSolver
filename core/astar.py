@@ -1,3 +1,6 @@
+import Queue
+
+
 class AStar:
 
     """A* pathfinding algorithm."""
@@ -12,4 +15,20 @@ class AStar:
         return:
             [Node] The final node in the path.
         """
-        raise NotImplementedError()
+        open_set = Queue.PriorityQueue()
+        open_set.put(initial, 0)
+        closed_set = []
+        current = None
+
+        while not open_set.empty():
+            current = open_set.get()
+            closed_set.append(current)
+
+            if current == goal:
+                break
+
+            for neighbor in current.neighbors():
+                if (neighbor not in closed_set):
+                    open_set.put(neighbor, neighbor.f(goal))
+
+        return current
