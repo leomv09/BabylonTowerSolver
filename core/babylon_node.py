@@ -72,8 +72,8 @@ class BabylonNode(Node):
     def __default_movements(self):
         """Get the default movements for any BabylonNode
 
-        :return:
-            [list] Default movements for Left and Right shifts
+        return:
+            [list] Default movements for Left and Right shifts (Always the same movements)
         """
         default_movements = []
         for row in range(0, self.rows):
@@ -82,21 +82,23 @@ class BabylonNode(Node):
                 default_movements.append(('R', row, col_movs))
         return default_movements
 
-    def __downwards_movements(self, gap_row):
+    def __downwards_movements(self):
         """Get the downwards movements for th gap if applies
 
         parameters:
             [int] gap_row -- The gap row index to init the range.
-        :return:
+        return:
             [list] Downwards movements. Empty if can't go down.
         """
         downwards_movements = []
+        gap_row = self.gap_index[0]
         rows_below = self.rows - gap_row
+
         for shifts in range(1, rows_below):
             downwards_movements.append(('D', '*', shifts))
         return downwards_movements
 
-    def __upward_movements(self, gap_row):
+    def __upward_movements(self):
         """Get the upwards movements for th gap if applies
         avoiding any locked spot
 
@@ -106,7 +108,14 @@ class BabylonNode(Node):
             [list] Upward movements. Empty if can't go Up.
         """
         upwards_movements = []
+        top_locked = self.__top_locked()
+        gap_row = self.gap_index[0]
+
         return upwards_movements
+
+    def __top_locked(self):
+        gap_col = self.gap_index[1]
+        return self.grid[0][gap_col] == '-'
 
     def _valid_movements(self):
         """Get all the movements that can be done from this node.
@@ -115,8 +124,8 @@ class BabylonNode(Node):
             [list] The list of valid movements.
         """
         valid_movements = self.__default_movements()
-        gap_row = self.gap_index[0]
-        valid_movements.extend(self.__downwards_movements(gap_row))
+
+        valid_movements.extend(self.__downwards_movements())
         return valid_movements
 
 
