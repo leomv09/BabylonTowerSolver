@@ -69,8 +69,8 @@ class BabylonNode(Node):
                     return (i, j)
         return None
 
-    def __default_movements(self):
-        """Get the default movements for any BabylonNode
+    def _default_movements(self):
+        """Get the default movements for any BabylonNode.
 
         return:
             [list] Default movements for Left and Right shifts (Always the same movements)
@@ -82,8 +82,8 @@ class BabylonNode(Node):
             default_movements.append(('R', row, 2))
         return default_movements
 
-    def __downward_movements(self):
-        """Get the downwards movements for th gap if applies
+    def _downward_movements(self):
+        """Get the downwards movements for th gap if applies.
 
         parameters:
             [int] gap_row -- The gap row index to init the range.
@@ -98,9 +98,8 @@ class BabylonNode(Node):
             downward_movements.append(('D', '*', shifts))
         return downward_movements
 
-    def __upward_movements(self):
-        """Get the upwards movements for th gap if applies
-        avoiding any locked spot
+    def _upward_movements(self):
+        """Get the upwards movements for th gap if applies avoiding any locked spot.
 
         parameters:
             [int] gap_row -- The gap row index to end the range.
@@ -108,14 +107,14 @@ class BabylonNode(Node):
             [list] Upward movements. Empty if can't go Up.
         """
         upward_movements = []
-        top_locked = self.__top_locked()
+        top_locked = self._top_locked()
         gap_row = self.gap_index[0]
         rows_above = gap_row + 1 if not top_locked else gap_row
         for shifts in range(1, rows_above):
             upward_movements.append(('U', '*', shifts))
         return upward_movements
 
-    def __top_locked(self):
+    def _top_locked(self):
         gap_col = self.gap_index[1]
         return self.grid[0][gap_col] == '-'
 
@@ -125,11 +124,10 @@ class BabylonNode(Node):
         return:
             [list] The list of valid movements.
         """
-        valid_movements = self.__default_movements()
-        valid_movements.extend(self.__downward_movements())
-        valid_movements.extend(self.__upward_movements())
+        valid_movements = self._default_movements()
+        valid_movements.extend(self._downward_movements())
+        valid_movements.extend(self._upward_movements())
         return valid_movements
-
 
     def _apply(self, movement):
         """Get the resulting node by applying a movement to this node.
