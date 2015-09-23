@@ -69,8 +69,8 @@ class BabylonNode(Node):
                     return (i, j)
         return None
 
-    def __default_movements(self):
-        """Get the default movements for any BabylonNode
+    def _default_movements(self):
+        """Get the default movements for any BabylonNode.
 
         return:
             [list] Default movements for Left and Right shifts (Always the same movements)
@@ -104,7 +104,7 @@ class BabylonNode(Node):
             [list] Upward movements. Empty if can't go Up.
         """
         upward_movements = []
-        top_locked = self.__top_locked()
+        top_locked = self._top_locked()
         gap_row = self.gap_index[0]
         rows_above = gap_row + 1 if not top_locked else gap_row
         for shifts in range(1, rows_above):
@@ -138,7 +138,7 @@ class BabylonNode(Node):
         gap_movements.extend(self.__sidewards_movements())
         return gap_movements
 
-    def __top_locked(self):
+    def _top_locked(self):
         gap_col = self.gap_index[1]
         return self.grid[0][gap_col] == '-'
 
