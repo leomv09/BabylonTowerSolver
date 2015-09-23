@@ -82,7 +82,7 @@ class BabylonNode(Node):
             default_movements.append(('R', row, 2))
         return default_movements
 
-    def __downward_movements(self):
+    def _downward_movements(self):
         """Get the downwards movements for the gap if applies
 
         return:
@@ -96,7 +96,7 @@ class BabylonNode(Node):
             downward_movements.append(('D', '*', shifts))
         return downward_movements
 
-    def __upward_movements(self):
+    def _upward_movements(self):
         """Get the upwards movements for the gap if applies
         avoiding any locked spot
 
@@ -111,7 +111,7 @@ class BabylonNode(Node):
             upward_movements.append(('U', '*', shifts))
         return upward_movements
 
-    def __sidewards_movements(self):
+    def _sidewards_movements(self):
         """Get the sidewars movements for the gap if applies
 
         return:
@@ -126,16 +126,16 @@ class BabylonNode(Node):
                 sidewards_movements.append(('R', '*', shifts))
         return sidewards_movements
 
-    def __gap_movements(self):
+    def _gap_movements(self):
         """
         Get all movements the gap is able to do.
 
         return:
             [list] The total movements from side, up and downwards
         """
-        gap_movements = self.__downward_movements()
-        gap_movements.extend(self.__upward_movements())
-        gap_movements.extend(self.__sidewards_movements())
+        gap_movements = self._downward_movements()
+        gap_movements.extend(self._upward_movements())
+        gap_movements.extend(self._sidewards_movements())
         return gap_movements
 
     def _top_locked(self):
@@ -148,8 +148,8 @@ class BabylonNode(Node):
         return:
             [list] The list of valid movements.
         """
-        valid_movements = self.__default_movements()
-        valid_movements.extend(self.__gap_movements())
+        valid_movements = self._default_movements()
+        valid_movements.extend(self._gap_movements())
         return valid_movements
 
     def _apply(self, movement):
