@@ -177,7 +177,8 @@ class BabylonNode(Node):
 
     def cost(self):
         """Get the cost of getting from the parent node to this node."""
-        return 0
+        total_shifts = self.movement[2] if self.movement else 0
+        return total_shifts
 
     def h(self, goal):
         """Get the heuristic estimate of the cost to get from this node to the goal node.
