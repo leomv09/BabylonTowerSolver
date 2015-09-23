@@ -83,10 +83,8 @@ class BabylonNode(Node):
         return default_movements
 
     def __downward_movements(self):
-        """Get the downwards movements for th gap if applies
+        """Get the downwards movements for the gap if applies
 
-        parameters:
-            [int] gap_row -- The gap row index to init the range.
         return:
             [list] Downwards movements. Empty if can't go down.
         """
@@ -99,12 +97,10 @@ class BabylonNode(Node):
         return downward_movements
 
     def __upward_movements(self):
-        """Get the upwards movements for th gap if applies
+        """Get the upwards movements for the gap if applies
         avoiding any locked spot
 
-        parameters:
-            [int] gap_row -- The gap row index to end the range.
-        :return:
+        return:
             [list] Upward movements. Empty if can't go Up.
         """
         upward_movements = []
@@ -114,6 +110,33 @@ class BabylonNode(Node):
         for shifts in range(1, rows_above):
             upward_movements.append(('U', '*', shifts))
         return upward_movements
+
+    def __sidewards_movements(self):
+        """Get the sidewars movements for the gap if applies
+
+        return:
+            [list] Sidewards movements. Empty if the gap row is 0.
+        """
+        sidewards_movements = []
+        gap_row = self.gap_index[0]
+
+        if gap_row != 0:
+            for shifts in range(1, self.cols - 1):
+                sidewards_movements.append(('L', '*', shifts))
+                sidewards_movements.append(('R', '*', shifts))
+        return sidewards_movements
+
+    def __gap_movements(self):
+        """
+        Get all movements the gap is able to do.
+
+        return:
+            [list] The total movements from side, up and downwards
+        """
+        gap_movements = self.__downward_movements()
+        gap_movements.extend(self.__upward_movements())
+        gap_movements.extend(self.__sidewards_movements())
+        return gap_movements
 
     def __top_locked(self):
         gap_col = self.gap_index[1]
@@ -126,10 +149,8 @@ class BabylonNode(Node):
             [list] The list of valid movements.
         """
         valid_movements = self.__default_movements()
-        valid_movements.extend(self.__downward_movements())
-        valid_movements.extend(self.__upward_movements())
+        valid_movements.extend(self.__gap_movements())
         return valid_movements
-
 
     def _apply(self, movement):
         """Get the resulting node by applying a movement to this node.
