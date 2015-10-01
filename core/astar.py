@@ -28,7 +28,45 @@ class AStar:
                 break
 
             for neighbor in current.neighbors():
-                if (neighbor not in closed_set):
+                if neighbor not in closed_set:
                     open_set.put((neighbor.f(goal), neighbor))
 
         return current
+
+    def movements_between(self, initial, goal):
+        """Get the movements between two nodes.
+
+        parameters:
+            [Node] initial -- The initial node.
+            [Node] goal -- The goal node.
+
+        return:
+            [list] The list of movements.
+        """
+        result = self.solve(initial, goal)
+        movements = []
+
+        while result.parent is not None:
+            movements.insert(0, result.movement)
+            result = result.parent
+
+        return movements
+
+    def nodes_between(self, initial, goal):
+        """Get the path between two nodes.
+
+        parameters:
+            [Node] initial -- The initial node.
+            [Node] goal -- The goal node.
+
+        return:
+            [list] The list of nodes.
+        """
+        result = self.solve(initial, goal)
+        nodes = []
+
+        while result is not None:
+            nodes.insert(0, result)
+            result = result.parent
+
+        return nodes

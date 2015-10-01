@@ -1,4 +1,5 @@
 from .node import Node
+import util
 import itertools
 import copy
 import re
@@ -37,7 +38,7 @@ class BabylonNode(Node):
         self.rows = len(grid)
         self.cols = len(grid[0]) if self.rows > 0 else 0
         self.gap_index = self._gap_index()
-        self.hash = self._hash()
+        self.hash = hash(tuple((i, j, self.grid[i][j]) for (i, j) in itertools.product(range(self.rows), range(self.cols))))
 
     def __hash__(self):
         """Get the hash code of this node."""
@@ -52,7 +53,7 @@ class BabylonNode(Node):
         return:
             [bool] True if this node have the same grid as the other node.
         """
-        return self.grid == other.grid if isinstance(other, BabylonNode) else False
+        return self.hash == other.hash if isinstance(other, BabylonNode) else False
 
     def __repr__(self):
         """Get the string representation of this node.
@@ -62,9 +63,6 @@ class BabylonNode(Node):
         """
         res = '\n'.join(map(str, self.grid))
         return re.sub("[\[|\]|,|']", "", res)
-
-    def _hash(self):
-        return hash(frozenset(frozenset(row) for row in self.grid))
 
     def _gap_index(self):
         """Get the index of the gap cell.
@@ -208,20 +206,58 @@ class BabylonNode(Node):
 
     def cost(self):
         """Get the cost of getting from the parent node to this node."""
-        return self.movement[2] if self.movement is not None else 0
+        return 1
 
-    def _nearest_cell(self, indexes, index, cell):
-        lower_cost = float("inf")
-        lower_index = None
-        x1, y1 = index[0], index[1]
-        for value in indexes:
-            x2, y2 = value[0], value[1]
-            if (self.grid[x2][y2] == cell):
-                cost = min(abs(y2 - y1), abs(self.cols - y2 - y1)) + abs(x2 - x1)
-                if (cost < lower_cost):
-                    lower_cost = cost
-                    lower_index = value
-        return lower_index, lower_cost
+    def _hx(self, other):
+        """Get the row diference average between two BabylonNode.
+
+        parameters:
+            [BabylonNode] other -- The other node.
+        """
+        total_cost = 0
+
+        for i in range(self.rows):
+            row_cost = 0
+            row1 = self.grid[i]
+            row2 = other.grid[i]
+
+            for idx1 in range(self.cols):
+                try:
+                    idx2 = util._find(row2, row1[idx1], idx1)
+                    if idx1 + idx2 == self.cols:
+                        row_cost += abs(idx1 - idx2)
+                    else:
+                        row_cost += min(abs(idx1 - idx2), abs(self.cols - idx1 - idx2))
+                except ValueError as e:
+                    pass
+
+            total_cost += (row_cost / float(self.cols))
+
+        return total_cost
+
+    def _hy(self, other):
+        """Get the column diference average between two BabylonNode.
+
+        parameters:
+            [BabylonNode] other -- The other node.
+        """
+        total_cost = 0
+
+        for i in range(self.cols):
+            col_cost = 0
+            row1 = [self.grid[j][i] for j in range(self.rows)]
+            row2 = [other.grid[j][i] for j in range(other.rows)]
+
+            for idx1 in range(self.rows):
+                try:
+                    idx2 = util._find(row2, row1[idx1], idx1)
+                    col_cost += abs(idx1 - idx2)
+                except ValueError as e:
+                    pass
+
+            total_cost += (col_cost / float(self.rows))
+
+        return total_cost
 
     def h(self, goal):
         """Get the heuristic estimate of the cost to get from this node to the goal node.
@@ -229,17 +265,7 @@ class BabylonNode(Node):
         parameters:
             [BabylonNode] goal -- The goal node.
         """
-        indexes = [(x, y) for x, y in itertools.product(range(self.rows), range(self.cols))]
-        value = 0
-
-        for i in range(goal.rows):
-            for j in range(goal.cols):
-                cell = goal.grid[i][j]
-                index, cost = self._nearest_cell(indexes, (i, j), cell)
-                indexes.remove(index)
-                value += cost
-
-        return value / float(self.rows * self.cols)
+        return self._hx(goal) + self._hy(goal)
 
     def neighbors(self):
         """Get the neighbors nodes.

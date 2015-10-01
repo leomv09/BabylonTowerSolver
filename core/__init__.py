@@ -6,4 +6,4 @@ classes:
     BabylonNode -- A node in the Babylon Tower Puzzle tree.
 """
 
-__all__ = ["astar", "node", "babylon_node"]
+__all__ = ["util", "astar", "node", "babylon_node"]
