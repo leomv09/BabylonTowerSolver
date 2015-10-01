@@ -16,12 +16,12 @@ class AStar:
             [Node] The final node in the path.
         """
         open_set = Queue.PriorityQueue()
-        open_set.put(initial, 0)
+        open_set.put((0, initial))
         closed_set = []
         current = None
 
         while not open_set.empty():
-            current = open_set.get()
+            current = open_set.get()[1]
             closed_set.append(current)
 
             if current == goal:
@@ -29,6 +29,6 @@ class AStar:
 
             for neighbor in current.neighbors():
                 if (neighbor not in closed_set):
-                    open_set.put(neighbor, neighbor.f(goal))
+                    open_set.put((neighbor.f(goal), neighbor))
 
         return current
