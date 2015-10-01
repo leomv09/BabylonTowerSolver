@@ -17,12 +17,12 @@ class AStar:
         """
         open_set = Queue.PriorityQueue()
         open_set.put((0, initial))
-        closed_set = []
+        closed_set = set()
         current = None
 
         while not open_set.empty():
             current = open_set.get()[1]
-            closed_set.append(current)
+            closed_set.add(current)
 
             if current == goal:
                 break

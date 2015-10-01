@@ -1,4 +1,5 @@
 from .node import Node
+import itertools
 import copy
 import re
 
@@ -36,6 +37,11 @@ class BabylonNode(Node):
         self.rows = len(grid)
         self.cols = len(grid[0]) if self.rows > 0 else 0
         self.gap_index = self._gap_index()
+        self.hash = self._hash()
+
+    def __hash__(self):
+        """Get the hash code of this node."""
+        return self.hash
 
     def __eq__(self, other):
         """Check if this node is equal to other node.
@@ -57,6 +63,9 @@ class BabylonNode(Node):
         res = '\n'.join(map(str, self.grid))
         return re.sub("[\[|\]|,|']", "", res)
 
+    def _hash(self):
+        return hash(frozenset(frozenset(row) for row in self.grid))
+
     def _gap_index(self):
         """Get the index of the gap cell.
 
@@ -77,13 +86,14 @@ class BabylonNode(Node):
         """
         default_movements = []
         for row in range(0, self.rows):
-            default_movements.append(('R', row, 1))
-            default_movements.append(('L', row, 1))
-            default_movements.append(('R', row, 2))
+            for shifts in range(1, (self.cols / 2) + 1):
+                default_movements.append(('R', row, shifts))
+            for shifts in range(1, self.cols - (self.cols / 2)):
+                default_movements.append(('L', row, shifts))
         return default_movements
 
     def _downward_movements(self):
-        """Get the downwards movements for the gap if applies
+        """Get the downwards movements for the gap if applies.
 
         return:
             [list] Downwards movements. Empty if can't go down.
@@ -97,8 +107,7 @@ class BabylonNode(Node):
         return downward_movements
 
     def _upward_movements(self):
-        """Get the upwards movements for the gap if applies
-        avoiding any locked spot
+        """Get the upwards movements for the gap if applies avoiding any locked spot.
 
         return:
             [list] Upward movements. Empty if can't go Up.
@@ -112,7 +121,7 @@ class BabylonNode(Node):
         return upward_movements
 
     def _sidewards_movements(self):
-        """Get the sidewars movements for the gap if applies
+        """Get the sidewars movements for the gap if applies.
 
         return:
             [list] Sidewards movements. Empty if the gap row is 0.
@@ -121,9 +130,10 @@ class BabylonNode(Node):
         gap_row = self.gap_index[0]
 
         if gap_row != 0:
-            for shifts in range(1, self.cols - 1):
-                sidewards_movements.append(('L', '*', shifts))
+            for shifts in range(1, (self.cols / 2) + 1):
                 sidewards_movements.append(('R', '*', shifts))
+            for shifts in range(1, self.cols - (self.cols / 2)):
+                sidewards_movements.append(('L', '*', shifts))
         return sidewards_movements
 
     def _gap_movements(self):
@@ -198,8 +208,20 @@ class BabylonNode(Node):
 
     def cost(self):
         """Get the cost of getting from the parent node to this node."""
-        total_shifts = self.movement[2] if self.movement else 0
-        return total_shifts
+        return self.movement[2] if self.movement is not None else 0
+
+    def _nearest_cell(self, indexes, index, cell):
+        lower_cost = float("inf")
+        lower_index = None
+        x1, y1 = index[0], index[1]
+        for value in indexes:
+            x2, y2 = value[0], value[1]
+            if (self.grid[x2][y2] == cell):
+                cost = min(abs(y2 - y1), abs(self.cols - y2 - y1)) + abs(x2 - x1)
+                if (cost < lower_cost):
+                    lower_cost = cost
+                    lower_index = value
+        return lower_index, lower_cost
 
     def h(self, goal):
         """Get the heuristic estimate of the cost to get from this node to the goal node.
@@ -207,7 +229,17 @@ class BabylonNode(Node):
         parameters:
             [BabylonNode] goal -- The goal node.
         """
-        return 0
+        indexes = [(x, y) for x, y in itertools.product(range(self.rows), range(self.cols))]
+        value = 0
+
+        for i in range(goal.rows):
+            for j in range(goal.cols):
+                cell = goal.grid[i][j]
+                index, cost = self._nearest_cell(indexes, (i, j), cell)
+                indexes.remove(index)
+                value += cost
+
+        return value / float(self.rows * self.cols)
 
     def neighbors(self):
         """Get the neighbors nodes.
