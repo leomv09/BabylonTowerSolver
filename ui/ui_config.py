@@ -15,6 +15,9 @@ class AppGTK:
         self.main_window = builder.get_object("main_window")
         self.configuration_window = builder2.get_object("main_window")
         self.create_button = builder.get_object("menu_button_create_config")
+        self.connect_signails()
+        
+    def connect_signails(self):
         if(self.main_window):
             self.main_window.connect("destroy", gtk.main_quit)
             self.main_window.show()

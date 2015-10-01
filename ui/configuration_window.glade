@@ -5,62 +5,62 @@
   <object class="GtkImage" id="backward_arrow1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">backward_arrow.png</property>
+    <property name="pixbuf">img/backward_arrow.png</property>
   </object>
   <object class="GtkImage" id="backward_arrow2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">backward_arrow.png</property>
+    <property name="pixbuf">img/backward_arrow.png</property>
   </object>
   <object class="GtkImage" id="backward_arrow3">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">backward_arrow.png</property>
+    <property name="pixbuf">img/backward_arrow.png</property>
   </object>
   <object class="GtkImage" id="backward_arrow4">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">backward_arrow.png</property>
+    <property name="pixbuf">img/backward_arrow.png</property>
   </object>
   <object class="GtkImage" id="backward_arrow5">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">backward_arrow.png</property>
+    <property name="pixbuf">img/backward_arrow.png</property>
   </object>
   <object class="GtkImage" id="downward_arrow">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">downward_arrow.png</property>
+    <property name="pixbuf">img/downward_arrow.png</property>
   </object>
   <object class="GtkImage" id="forward_arrow">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">forward_arrow.png</property>
+    <property name="pixbuf">img/forward_arrow.png</property>
   </object>
   <object class="GtkImage" id="forward_arrow1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">forward_arrow.png</property>
+    <property name="pixbuf">img/forward_arrow.png</property>
   </object>
   <object class="GtkImage" id="forward_arrow2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">forward_arrow.png</property>
+    <property name="pixbuf">img/forward_arrow.png</property>
   </object>
   <object class="GtkImage" id="forward_arrow3">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">forward_arrow.png</property>
+    <property name="pixbuf">img/forward_arrow.png</property>
   </object>
   <object class="GtkImage" id="forward_arrow4">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">forward_arrow.png</property>
+    <property name="pixbuf">img/forward_arrow.png</property>
   </object>
   <object class="GtkImage" id="upward_arrow">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">upward_arrow.png</property>
+    <property name="pixbuf">img/upward_arrow.png</property>
   </object>
   <object class="GtkWindow" id="main_window">
     <property name="can_focus">False</property>
@@ -240,7 +240,7 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="ypad">2</property>
-            <property name="pixbuf">background.png</property>
+            <property name="pixbuf">img/background.png</property>
           </object>
           <packing>
             <property name="x">200</property>
@@ -255,7 +255,7 @@
             <property name="can_focus">False</property>
             <property name="yalign">0.50999999046325684</property>
             <property name="ypad">3</property>
-            <property name="pixbuf">black_dice.png</property>
+            <property name="pixbuf">img/black_dice.png</property>
           </object>
           <packing>
             <property name="x">265</property>
@@ -268,7 +268,7 @@
             <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="pixbuf">green_ball.png</property>
+            <property name="pixbuf">img/green_ball.png</property>
           </object>
           <packing>
             <property name="x">265</property>
@@ -281,7 +281,7 @@
             <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="pixbuf">green_ball.png</property>
+            <property name="pixbuf">img/green_ball.png</property>
           </object>
           <packing>
             <property name="x">265</property>
@@ -294,7 +294,7 @@
             <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="pixbuf">green_ball.png</property>
+            <property name="pixbuf">img/green_ball.png</property>
           </object>
           <packing>
             <property name="x">265</property>
@@ -307,7 +307,7 @@
             <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="pixbuf">green_ball.png</property>
+            <property name="pixbuf">img/green_ball.png</property>
           </object>
           <packing>
             <property name="x">265</property>
