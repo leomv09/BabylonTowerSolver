@@ -6,13 +6,17 @@ import gtk
 
 class AppGTK:
     def __init__(self):
-        builder = gtk.Builder()
-        builder2 = gtk.Builder()
-        builder.add_from_file("start_window.glade")
-        builder2.add_from_file("configuration_window.glade")
-        self.main_window = builder.get_object("main_window")
-        self.configuration_window = builder2.get_object("main_window")
-        self.create_button = builder.get_object("menu_button_create_config")
+        start_window_builder = gtk.Builder()
+        configuration_window_builder = gtk.Builder()
+        solution_window_builder = gtk.Builder()
+        
+        start_window_builder.add_from_file("start_window.glade")
+        configuration_window_builder.add_from_file("configuration_window.glade")
+        solution_window_builder.add_from_file("solution_window.glade")
+        
+        self.main_window = start_window_builder.get_object("main_window")
+        self.configuration_window = configuration_window_builder.get_object("main_window")
+        self.create_button = start_window_builder.get_object("menu_button_create_config")
         self.connect_signals()
         
     def connect_signals(self):
@@ -27,7 +31,6 @@ class AppGTK:
     def start_configuration_window(self, widget, config_window, parent_window):
         if(config_window and parent_window):
             config_window.show()
-            ##parent_window.destroy()
 
 
 
