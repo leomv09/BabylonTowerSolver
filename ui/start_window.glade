@@ -98,7 +98,7 @@
                 <property name="label" translatable="yes">Ay_uda</property>
                 <property name="use_underline">True</property>
                 <child type="submenu">
-                  <object class="GtkMenu" id="menu3">
+                  <object class="GtkMenu" id="about_menu">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
@@ -115,21 +115,6 @@
               </object>
             </child>
           </object>
-        </child>
-        <child>
-          <object class="GtkButton" id="menu_button_load_config">
-            <property name="label" translatable="yes">Cargar configuración
-</property>
-            <property name="width_request">150</property>
-            <property name="height_request">50</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-          </object>
-          <packing>
-            <property name="x">210</property>
-            <property name="y">90</property>
-          </packing>
         </child>
         <child>
           <object class="GtkButton" id="menu_button_create_config">
@@ -161,19 +146,6 @@
           </packing>
         </child>
         <child>
-          <object class="GtkImage" id="image1">
-            <property name="width_request">50</property>
-            <property name="height_request">50</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="stock">gtk-open</property>
-          </object>
-          <packing>
-            <property name="x">360</property>
-            <property name="y">90</property>
-          </packing>
-        </child>
-        <child>
           <object class="GtkImage" id="image2">
             <property name="width_request">50</property>
             <property name="height_request">50</property>
@@ -197,6 +169,32 @@
           <packing>
             <property name="x">360</property>
             <property name="y">230</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="load_file_button">
+            <property name="label" translatable="yes">Cargar</property>
+            <property name="width_request">50</property>
+            <property name="height_request">50</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+          </object>
+          <packing>
+            <property name="x">370</property>
+            <property name="y">90</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFileChooserButton" id="file_chooser_button">
+            <property name="width_request">150</property>
+            <property name="height_request">50</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+          </object>
+          <packing>
+            <property name="x">210</property>
+            <property name="y">90</property>
           </packing>
         </child>
       </object>

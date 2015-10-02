@@ -3,6 +3,7 @@ import pygtk
 pygtk.require("2.0")
 import gtk
 import utilities
+import file_parser
 import os.path, sys
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir))
 import core.babylon_node
@@ -82,8 +83,26 @@ class AppGTK:
             [AppGTK] self -- the self instance.
         """
         self.create_configuration_button = self.start_window_builder.get_object("menu_button_create_config")
+        self.open_file_dialog = self.start_window_builder.get_object("file_chooser_button")
+        self.load_file_button = self.start_window_builder.get_object("load_file_button")
+        self.set_filter()
+        self.load_file_button.connect("clicked", self.open_config_from_file)
         if(self.create_configuration_button):
             self.create_configuration_button.connect("clicked", self.start_configuration_window, self.configuration_window, self.main_window)
+
+    def set_filter(self):
+        filter = gtk.FileFilter()
+        filter.set_name("Text files")
+        filter.add_pattern("*.txt")
+        self.open_file_dialog.add_filter(filter)
+
+    def open_config_from_file(self, widget):
+        file_name = self.open_file_dialog.get_filename()
+        data = file_parser.parse_file(file_name)
+        self.startMatrix1 = data
+        self.load_congiguration_matrix(self.startMatrix1)
+        self.load_congiguration_matrix(self.startMatrix2, 5)
+        self.configuration_window.show()
             
     def set_configuration_window_buttons(self):
         """ Obtains all the buttons from the configuration window XML file.
