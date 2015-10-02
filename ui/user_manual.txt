@@ -1,0 +1,18 @@
+Babylon Tower Solver
+Tecnológico de Costa Rica,2015
+
+¿Como cargar una configuracion desde un archivo?
+Se debe seleccionar la opcion de cargar configuracion del menu principal y despues seleccionar el archivo desde donde se dese hacer la carga.
+
+¿Como ingresar una configuracion?
+Se debe seleccionar crear configuración desde el menu de inicio, una vez ahi las fechas alrededor del puzzle simulan los movimientos que se puede realizar en el Puzzle fisico, con lo cual se debe interacturar con estas flechas para conseguir la configuracion deseada.
+
+¿Como generar una configuracion aleatoria?
+Solamente se debe seleccionar la opcion de generar configuracion aleatoria del menu de inicio.
+
+¿Como guardar el estado?
+Se debe ingresar al menu de la parte superior y seleccionar la opcion Archivo, donde se despliegara otro menu en donde se debe seleccionar guardar.
+
+
+¿Como solucionar un puzzle de babylon tower?
+Se debe ingresar la configuracion inicial como se mostro anteriormente y ademas seleccionar iniciar de la pantalla de ingresar configuracion.

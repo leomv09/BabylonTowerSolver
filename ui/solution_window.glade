@@ -526,7 +526,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel" id="steps_descrption_label">
+          <object class="GtkLabel" id="steps_description_label">
             <property name="width_request">400</property>
             <property name="height_request">400</property>
             <property name="visible">True</property>
@@ -548,8 +548,8 @@
             <property name="image">image1</property>
           </object>
           <packing>
-            <property name="x">60</property>
-            <property name="y">690</property>
+            <property name="x">600</property>
+            <property name="y">600</property>
           </packing>
         </child>
         <child>
@@ -561,8 +561,8 @@
             <property name="label" translatable="yes">Anterior</property>
           </object>
           <packing>
-            <property name="x">60</property>
-            <property name="y">722</property>
+            <property name="x">600</property>
+            <property name="y">630</property>
           </packing>
         </child>
         <child>
@@ -575,8 +575,8 @@
             <property name="image">image2</property>
           </object>
           <packing>
-            <property name="x">375</property>
-            <property name="y">690</property>
+            <property name="x">850</property>
+            <property name="y">600</property>
           </packing>
         </child>
         <child>
@@ -588,8 +588,8 @@
             <property name="label" translatable="yes">Siguiente</property>
           </object>
           <packing>
-            <property name="x">375</property>
-            <property name="y">722</property>
+            <property name="x">850</property>
+            <property name="y">630</property>
           </packing>
         </child>
       </object>

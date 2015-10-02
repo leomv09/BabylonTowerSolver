@@ -1,13 +1,61 @@
 
+def read_file(name):
+    text_file = open(name, "r")
+    return text_file.read()
+
 def get_image_name(operation):
     images = {
         'R': 'red_ball.png',
         'G': 'green_ball.png',
         'B': 'blue_ball.png',
         'Y': 'yellow_ball.png',
-        '*': 'black_dice.png'
+        '*': 'black_dice.png',
+        '-': 'inner_background_gray.png'
     }
     return images.get(operation)
+
+def has_upward_moves(matrix):
+    count = 0
+    for matrix_set in matrix:
+        if(count < 4):
+            if(matrix_set[0] == '*'):
+                return True
+        count += 1
+    return False
+
+def move_upward(matrix):
+    count = 0
+    for matrix_set in matrix:
+        if(count < 4):
+            if(matrix_set[0] == '*'):
+                wildcard = matrix_set.pop(0)
+                elem = matrix[count + 1].pop(0)
+                matrix_set.insert(0, elem)
+                matrix[count + 1].insert(0, wildcard)
+                return matrix
+        count += 1
+        
+
+def has_downward_moves(matrix):
+    count = 0
+    for matrix_set in matrix:
+        if(count < 5):
+            if(matrix_set[0] == '*' and count > 0):
+                return True
+        count += 1
+    return False
+
+def move_downward(matrix):
+    count = 0
+    for matrix_set in matrix:
+        if(count < 5):
+            if(matrix_set[0] == '*' and count > 0):
+                wildcard = matrix_set.pop(0)
+                elem = matrix[count - 1].pop(0)
+                matrix_set.insert(0, elem)
+                matrix[count - 1].insert(0, wildcard)
+                return matrix
+        count += 1
 
 def get_operation_name(image):
     images = {
