@@ -228,7 +228,7 @@ class BabylonNode(Node):
                         row_cost += abs(idx1 - idx2)
                     else:
                         row_cost += min(abs(idx1 - idx2), abs(self.cols - idx1 - idx2))
-                except ValueError as e:
+                except ValueError:
                     pass
 
             total_cost += (row_cost / float(self.cols))
@@ -252,7 +252,7 @@ class BabylonNode(Node):
                 try:
                     idx2 = util._find(row2, row1[idx1], idx1)
                     col_cost += abs(idx1 - idx2)
-                except ValueError as e:
+                except ValueError:
                     pass
 
             total_cost += (col_cost / float(self.rows))
