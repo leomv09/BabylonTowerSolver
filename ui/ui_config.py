@@ -26,6 +26,10 @@ class AppGTK:
         self.connect_windows_signals()
         self.set_start_window_buttons()
         self.set_configuration_window_buttons()
+        self.set_solution_window_buttons()
+
+        if(self.cw_start_button):
+            self.cw_start_button.connect("clicked", self.start_solution_window, self.solution_window, self.configuration_window)
         
     def connect_windows_signals(self):
         """ Connects the quit signail of the windows.
@@ -60,6 +64,7 @@ class AppGTK:
         self.cw_downward_button = self.configuration_window_builder.get_object("downward_button")
         self.cw_start_button = self.configuration_window_builder.get_object("start_button")
         
+        
         self.cw_backward_button1 = self.configuration_window_builder.get_object("backward_button1")
         self.cw_backward_button2 = self.configuration_window_builder.get_object("backward_button2")
         self.cw_backward_button3 = self.configuration_window_builder.get_object("backward_button3")
@@ -72,7 +77,7 @@ class AppGTK:
         self.cw_forward_button4 = self.configuration_window_builder.get_object("forward_button4")
         self.cw_forward_button5 = self.configuration_window_builder.get_object("forward_button5")
     
-    def set_solution_window_buttons:
+    def set_solution_window_buttons(self):
         """ Obtains all the buttons from the solution XML file
         sw = solution window.
         parameters:
@@ -105,6 +110,11 @@ class AppGTK:
         """
         if(config_window and parent_window):
             config_window.show()
+
+    def start_solution_window(self, widget, solution_window, parent_window):
+        if(solution_window and parent_window):
+            solution_window.show()
+            parent_window.destroy()
 
 
 
