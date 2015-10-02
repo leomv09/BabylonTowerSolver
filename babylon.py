@@ -7,14 +7,35 @@ import time
 def main():
     """Main function."""
     algorithm = AStar()
+    #initial = BabylonNode(grid=[['-','-','-','*'],['a','A','v','r'],['a','v','A','r'],['a','v','A','r'],['a','A','v','r']])
+    #goal = BabylonNode(grid=[['-','-','-','*'],['a','v','A','r'],['a','v','A','r'],['a','v','A','r'],['a','v','A','r']])
     initial = BabylonNode()
     goal = BabylonNode()
 
-    levels = 10  # Neighbors deep levels.
+
+    levels = 3  # Neighbors deep levels.
     for i in range(levels):
         initial = random.choice(initial.neighbors())
     initial.parent = None
     initial.movement = None
+
+    """
+    initial = BabylonNode(grid=[
+        ['B', '-', '-', '-'],
+        ['R', 'Y', 'R', 'G'],
+        ['R', 'G', 'B', 'Y'],
+        ['B', 'Y', 'Y', '*'],
+        ['G', 'G', 'B', 'R']])
+    """
+
+    """
+    initial = BabylonNode(grid=[
+        ['*', '-', '-', '-'],
+        ['R', 'G', 'B', 'Y'],
+        ['R', 'B', 'G', 'Y'],
+        ['R', 'G', 'B', 'Y'],
+        ['R', 'G', 'B', 'Y']])
+    """
 
     print "FROM", '\n', initial, '\n'
     print "TO", '\n', goal, '\n'
