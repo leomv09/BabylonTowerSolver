@@ -10,11 +10,11 @@ def main():
     initial = BabylonNode()
     goal = BabylonNode()
 
-    levels = 5  # Neighbors deep levels.
+    levels = 10  # Neighbors deep levels.
     for i in range(levels):
         initial = random.choice(initial.neighbors())
-        initial.parent = None
-        initial.movement = None
+    initial.parent = None
+    initial.movement = None
 
     print "FROM", '\n', initial, '\n'
     print "TO", '\n', goal, '\n'

@@ -17,18 +17,19 @@ class AStar:
         """
         open_set = Queue.PriorityQueue()
         open_set.put((0, initial))
-        closed_set = set()
+        closed_set = {}
         current = None
 
         while not open_set.empty():
             current = open_set.get()[1]
-            closed_set.add(current)
 
             if current == goal:
                 break
 
             for neighbor in current.neighbors():
-                if neighbor not in closed_set:
+                cost = neighbor.g()
+                if neighbor not in closed_set or cost < closed_set[neighbor]:
+                    closed_set[neighbor] = cost
                     open_set.put((neighbor.f(goal), neighbor))
 
         return current
@@ -52,8 +53,27 @@ class AStar:
 
         return movements
 
+    def grids_between(self, initial, goal):
+        """Get the grids between two nodes.
+
+        parameters:
+            [Node] initial -- The initial node.
+            [Node] goal -- The goal node.
+
+        return:
+            [list] The list of grids.
+        """
+        result = self.solve(initial, goal)
+        grids = []
+
+        while result is not None:
+            grids.insert(0, result.grid)
+            result = result.parent
+
+        return grids
+
     def nodes_between(self, initial, goal):
-        """Get the path between two nodes.
+        """Get the nodes between two nodes.
 
         parameters:
             [Node] initial -- The initial node.
