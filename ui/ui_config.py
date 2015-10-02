@@ -26,29 +26,29 @@ class AppGTK:
         self.movement_index = 0
         self.solution_grids_index = 0
         self.indexes = [self.current_index_row_0, self.current_index_row_1, self.current_index_row_2, self.current_index_row_3, self.current_index_row_4]
-
+        
         self.cw_toy_images = []
         self.sw_toy_images = []
-
+        
         self.start_window_builder = gtk.Builder()
         self.configuration_window_builder = gtk.Builder()
         self.solution_window_builder = gtk.Builder()
         self.loading_window_builder = gtk.Builder()
         self.user_manual_window_builder = gtk.Builder()
-
+        
         self.start_window_builder.add_from_file("start_window.glade")
         self.configuration_window_builder.add_from_file("configuration_window.glade")
         self.solution_window_builder.add_from_file("solution_window.glade")
         self.loading_window_builder.add_from_file("loading_window.glade")
         self.user_manual_window_builder.add_from_file("user_manual.glade")
-
+        
         self.main_window = self.start_window_builder.get_object("main_window")
         self.configuration_window = self.configuration_window_builder.get_object("main_window")
         self.solution_window = self.solution_window_builder.get_object("main_window")
         self.loading_window = self.loading_window_builder.get_object("main_window")
         self.user_manual_window = self.user_manual_window_builder.get_object("main_window")
         self.description_label = self.solution_window_builder.get_object("steps_description_label")
-
+        
         self.connect_windows_signals()
         self.set_start_window_buttons()
         self.set_configuration_window_buttons()
@@ -58,7 +58,7 @@ class AppGTK:
         if(self.cw_start_button):
             self.cw_start_button.connect("clicked", self.start_solution_window, self.solution_window, self.configuration_window)
 
-
+                
     def connect_windows_signals(self):
         """ Connects the quit signail to the windows.
         parameters:
@@ -74,7 +74,7 @@ class AppGTK:
         if(self.loading_window):
             self.loading_window.connect("destroy", gtk.Widget.destroy)
         if(self.user_manual_window):
-            self.user_manual_window.connect("destroy", gtk.Widget.destroy)
+            self.user_manual_window.connect("destroy", gtk.Widget.destroy) 
 
     def set_start_window_buttons(self):
         """ Obtains all the buttons from the start window XML file.
@@ -90,7 +90,6 @@ class AppGTK:
         if(self.create_configuration_button):
             self.create_configuration_button.connect("clicked", self.start_configuration_window, self.configuration_window, self.main_window)
 
-<<<<<<< HEAD
     def set_filter(self):
         filter = gtk.FileFilter()
         filter.set_name("Text files")
@@ -99,14 +98,13 @@ class AppGTK:
 
     def open_config_from_file(self, widget):
         file_name = self.open_file_dialog.get_filename()
-        data = file_parser.parse_file(file_name)
-        self.startMatrix1 = data
-        self.load_congiguration_matrix(self.startMatrix1)
-        self.load_congiguration_matrix(self.startMatrix2, 5)
-        self.configuration_window.show()
+        if(file_name):
+            data = file_parser.parse_file(file_name)
+            self.startMatrix1 = data
+            self.load_congiguration_matrix(self.startMatrix1)
+            self.load_congiguration_matrix(self.startMatrix2, 5)
+            self.configuration_window.show()
             
-=======
->>>>>>> 8c74e16ba23f9f4a08c8c08596e995c746d1cc06
     def set_configuration_window_buttons(self):
         """ Obtains all the buttons from the configuration window XML file.
         cw = configuration window.
@@ -122,14 +120,14 @@ class AppGTK:
         self.cw_downward_button.connect("clicked", self.move_downward)
         self.cw_downward_button2.connect("clicked", self.move_downward, 2)
         self.cw_start_button = self.configuration_window_builder.get_object("start_button")
-
-
+        
+        
         self.cw_backward_button1 = self.configuration_window_builder.get_object("backward_button1")
         self.cw_backward_button2 = self.configuration_window_builder.get_object("backward_button2")
         self.cw_backward_button3 = self.configuration_window_builder.get_object("backward_button3")
         self.cw_backward_button4 = self.configuration_window_builder.get_object("backward_button4")
         self.cw_backward_button5 = self.configuration_window_builder.get_object("backward_button5")
-
+        
         self.cw_forward_button1 = self.configuration_window_builder.get_object("forward_button1")
         self.cw_forward_button2 = self.configuration_window_builder.get_object("forward_button2")
         self.cw_forward_button3 = self.configuration_window_builder.get_object("forward_button3")
@@ -153,7 +151,7 @@ class AppGTK:
         self.cw_backward_button8 = self.configuration_window_builder.get_object("backward_button8")
         self.cw_backward_button9 = self.configuration_window_builder.get_object("backward_button9")
         self.cw_backward_button10 = self.configuration_window_builder.get_object("backward_button10")
-
+        
         self.cw_forward_button6 = self.configuration_window_builder.get_object("forward_button6")
         self.cw_forward_button7 = self.configuration_window_builder.get_object("forward_button7")
         self.cw_forward_button8 = self.configuration_window_builder.get_object("forward_button8")
@@ -171,7 +169,7 @@ class AppGTK:
         self.cw_backward_button8.connect("clicked", self.configuration_move_left_row, 2, 2)
         self.cw_backward_button9.connect("clicked", self.configuration_move_left_row, 3, 2)
         self.cw_backward_button10.connect("clicked", self.configuration_move_left_row, 4, 2)
-
+    
     def set_solution_window_buttons(self):
         """ Obtains all the buttons from the solution XML file
         sw = solution window.
@@ -180,13 +178,13 @@ class AppGTK:
         """
         self.sow_upward_button = self.solution_window_builder.get_object("upward_button")
         self.sow_downward_button = self.solution_window_builder.get_object("downward_button")
-
+        
         self.sow_backward_button1 = self.solution_window_builder.get_object("backward_button1")
         self.sow_backward_button2 = self.solution_window_builder.get_object("backward_button2")
         self.sow_backward_button3 = self.solution_window_builder.get_object("backward_button3")
         self.sow_backward_button4 = self.solution_window_builder.get_object("backward_button4")
         self.sow_backward_button5 = self.solution_window_builder.get_object("backward_button5")
-
+        
         self.sow_forward_button1 = self.solution_window_builder.get_object("forward_button1")
         self.sow_forward_button2 = self.solution_window_builder.get_object("forward_button2")
         self.sow_forward_button3 = self.solution_window_builder.get_object("forward_button3")
@@ -203,7 +201,7 @@ class AppGTK:
             self.movement_index += 1
             self.print_step()
         if(not self.solution_grids_index +1 > len(self.solution_grids)-1):
-            self.solution_grids_index +=1
+            self.solution_grids_index +=1 
             self.paint_solution_matrix(self.solution_grids, self.solution_grids_index)
 
     def show_previous_solution(self, widget):
@@ -211,14 +209,14 @@ class AppGTK:
             self.movement_index -=1
             self.print_step()
         if(not self.solution_grids_index - 1 < 0):
-            self.solution_grids_index -=1
+            self.solution_grids_index -=1 
             self.paint_solution_matrix(self.solution_grids, self.solution_grids_index)
-
+        
     def show_user_manual(self):
         content_label = self.user_manual_window.get_object("content_label")
         content_label.set_text(utilities.readFile("user_manual.txt"))
-
-
+        
+    
     def start_configuration_window(self, widget, config_window, parent_window):
         """ Shows the configuration window.
         parameters:
@@ -245,9 +243,8 @@ class AppGTK:
             start = core.babylon_node.BabylonNode(self.startMatrix1)
             goal = core.babylon_node.BabylonNode(self.startMatrix2)
             algorithm = core.astar.AStar()
-            nodes = algorithm.nodes_between(start, goal)
-            self.movements = [node.movement for node in nodes[1:]]
-            self.solution_grids = [node.grid for node in nodes]
+            self.movements = algorithm.movements_between(start, goal)
+            self.solution_grids = algorithm.grids_between(start, goal)
             print("\nSolution:\n")
             print(self.solution_grids)
             print("\nMovements:\n")
@@ -282,7 +279,7 @@ class AppGTK:
     def load_congiguration_matrix(self, matrix, number=0):
         index = 0
         for operation_set in matrix:
-            image = utilities.get_image_name(operation_set[0])
+            image = utilities.get_image_name(operation_set[0])             
             gtk_object = self.cw_toy_images[index+number]
             gtk_object.set_from_file('img/'+image)
             index += 1
@@ -290,7 +287,7 @@ class AppGTK:
     def load_solution_matrix(self):
         index = 0
         for operation_set in self.solution_grids[0]:
-            image = utilities.get_image_name(operation_set[0])
+            image = utilities.get_image_name(operation_set[0])             
             gtk_object = self.sw_toy_images[index]
             gtk_object.set_from_file('img/'+image)
             index += 1
@@ -334,7 +331,7 @@ class AppGTK:
             else:
                 print("No moves")
 
-
+                
     def move_downward(self, widget, matrix_number=1):
         if(matrix_number == 1):
             if(utilities.has_downward_moves(self.startMatrix1)):
@@ -348,7 +345,7 @@ class AppGTK:
                 self.paint_matrix(self.startMatrix2, self.cw_toy_images, 5)
             else:
                 print("No moves")
-
+            
 
     def paint_matrix(self, matrix, images, id=0):
         index = 0
@@ -373,3 +370,6 @@ class AppGTK:
     def print_step(self):
         text = utilities.get_movement_description(self.movements[self.movement_index])
         self.description_label.set_text(text)
+        
+                
+
