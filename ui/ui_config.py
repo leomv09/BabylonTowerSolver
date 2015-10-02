@@ -4,8 +4,6 @@ pygtk.require("2.0")
 import gtk
 
 
-
-
 class AppGTK:
     def __init__(self):
         builder = gtk.Builder()
@@ -15,9 +13,9 @@ class AppGTK:
         self.main_window = builder.get_object("main_window")
         self.configuration_window = builder2.get_object("main_window")
         self.create_button = builder.get_object("menu_button_create_config")
-        self.connect_signails()
+        self.connect_signals()
         
-    def connect_signails(self):
+    def connect_signals(self):
         if(self.main_window):
             self.main_window.connect("destroy", gtk.main_quit)
             self.main_window.show()
