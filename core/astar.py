@@ -23,6 +23,8 @@ class AStar:
         while not open_set.empty():
             current = open_set.get()[1]
 
+            #print current.g(), '+', current.h(goal), '=', current.f(goal)
+
             if current == goal:
                 break
 
@@ -31,7 +33,9 @@ class AStar:
                 if neighbor not in closed_set or cost < closed_set[neighbor]:
                     closed_set[neighbor] = cost
                     open_set.put((neighbor.f(goal), neighbor))
+                    #assert(current.h(goal) - neighbor.h(goal) <= neighbor.cost())
 
+        #print initial.g(), '+', initial.h(goal), '=', initial.f(goal)
         return current
 
     def movements_between(self, initial, goal):

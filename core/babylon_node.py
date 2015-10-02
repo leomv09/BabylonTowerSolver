@@ -208,6 +208,40 @@ class BabylonNode(Node):
         """Get the cost of getting from the parent node to this node."""
         return 1
 
+    def _nearest_row(self, index, element):
+        max_delta = max(index + 1, self.rows - index)
+        delta = 0
+
+        while delta < max_delta:
+            lower_index = index - delta
+            if lower_index >= 0 and element in self.grid[lower_index]:
+                return self.grid[lower_index]
+
+            upper_index = index + delta
+            if upper_index < self.rows and element in self.grid[upper_index]:
+                return self.grid[upper_index]
+
+            delta += 1
+
+    def _nearest_col(self, index, element):
+        max_delta = max(index + 1, self.cols - index)
+        delta = 0
+
+        while delta < max_delta:
+            lower_index = index - delta
+            if lower_index >= 0:
+                lower_col = [self.grid[j][lower_index] for j in range(self.rows)]
+                if element in lower_col:
+                    return lower_col
+
+            upper_index = index + delta
+            if upper_index < self.cols:
+                upper_col = [self.grid[j][upper_index] for j in range(self.rows)]
+                if element in upper_col:
+                    return upper_col
+
+            delta += 1
+
     def _hx(self, other):
         """Get the row diference average between two BabylonNode.
 
@@ -222,14 +256,15 @@ class BabylonNode(Node):
             row2 = other.grid[i]
 
             for idx1 in range(self.cols):
+                row3 = row2 if row1[idx1] in row2 else other._nearest_row(i, row1[idx1])
                 try:
-                    idx2 = util._find(row2, row1[idx1], idx1)
+                    idx2 = util._find(row3, row1[idx1], idx1)
                     if idx1 + idx2 == self.cols:
                         row_cost += abs(idx1 - idx2)
                     else:
                         row_cost += min(abs(idx1 - idx2), abs(self.cols - idx1 - idx2))
                 except ValueError:
-                    pass
+                    row_cost += (self.cols * self.rows)
 
             total_cost += (row_cost / float(self.cols))
 
@@ -249,11 +284,12 @@ class BabylonNode(Node):
             row2 = [other.grid[j][i] for j in range(other.rows)]
 
             for idx1 in range(self.rows):
+                row3 = row2 if row1[idx1] in row2 else other._nearest_col(i, row1[idx1])
                 try:
-                    idx2 = util._find(row2, row1[idx1], idx1)
+                    idx2 = util._find(row3, row1[idx1], idx1)
                     col_cost += abs(idx1 - idx2)
                 except ValueError:
-                    pass
+                    col_cost += (self.cols * self.rows)
 
             total_cost += (col_cost / float(self.rows))
 

@@ -5,7 +5,7 @@ import gtk
 
 
 class AppGTK:
-    """ Class that handle the graphic user interface. """
+    """ Class that handles the graphic user interface components. """
     def __init__(self):
         """ Initializes the components.
         parameters:
@@ -32,7 +32,7 @@ class AppGTK:
             self.cw_start_button.connect("clicked", self.start_solution_window, self.solution_window, self.configuration_window)
         
     def connect_windows_signals(self):
-        """ Connects the quit signail of the windows.
+        """ Connects the quit signail to the windows.
         parameters:
             [AppGTK] self -- the self instance.
         """
@@ -46,7 +46,7 @@ class AppGTK:
 
     def set_start_window_buttons(self):
         """ Obtains all the buttons from the start window XML file.
-        sw = solution window.
+        sw = start window.
         parameters:
             [AppGTK] self -- the self instance.
         """
@@ -112,9 +112,26 @@ class AppGTK:
             config_window.show()
 
     def start_solution_window(self, widget, solution_window, parent_window):
+        """ Shows the solution window.
+        parameters:
+            [AppGTK] self -- the self instance.
+            [gtk.Widget] widget -- the widget event.
+            [gtk.Object] config_window -- The configuration window object.
+            [gtk.Object] config_window -- The start window object(parent).
+        """
         if(solution_window and parent_window):
             solution_window.show()
             parent_window.destroy()
+
+    def get_image_name(self, operation):
+        images = {
+            'R': 'red_ball.png',
+            'G': 'green_ball.png',
+            'B': 'blue_ball.png',
+            'Y': 'yellow_ball.png',
+            '*': 'black_dice.png'
+            }
+        return images.get(operation)
 
 
 
