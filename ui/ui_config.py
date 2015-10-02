@@ -243,8 +243,9 @@ class AppGTK:
             start = core.babylon_node.BabylonNode(self.startMatrix1)
             goal = core.babylon_node.BabylonNode(self.startMatrix2)
             algorithm = core.astar.AStar()
-            self.movements = algorithm.movements_between(start, goal)
-            self.solution_grids = algorithm.grids_between(start, goal)
+            nodes = algorithm.nodes_between(start, goal)
+            self.movements = [node.movement for node in nodes[1:]] if len(nodes) > 1 else []
+            self.solution_grids = [node.grid for node in nodes]
             print("\nSolution:\n")
             print(self.solution_grids)
             print("\nMovements:\n")
@@ -368,5 +369,6 @@ class AppGTK:
             print(operation_set)
 
     def print_step(self):
-        text = utilities.get_movement_description(self.movements[self.movement_index])
-        self.description_label.set_text(text)
+        if (self.movements):
+            text = utilities.get_movement_description(self.movements[self.movement_index])
+            self.description_label.set_text(text)

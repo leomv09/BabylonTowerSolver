@@ -90,7 +90,7 @@ class BabylonNode(Node):
                 default_movements.append(('L', row, shifts))
         return default_movements
 
-    def _downward_movements(self):
+    def _gap_downward_movements(self):
         """Get the downwards movements for the gap if applies.
 
         return:
@@ -104,7 +104,7 @@ class BabylonNode(Node):
             downward_movements.append(('D', '*', shifts))
         return downward_movements
 
-    def _upward_movements(self):
+    def _gap_upward_movements(self):
         """Get the upwards movements for the gap if applies avoiding any locked spot.
 
         return:
@@ -118,32 +118,15 @@ class BabylonNode(Node):
             upward_movements.append(('U', '*', shifts))
         return upward_movements
 
-    def _sidewards_movements(self):
-        """Get the sidewars movements for the gap if applies.
-
-        return:
-            [list] Sidewards movements. Empty if the gap row is 0.
-        """
-        sidewards_movements = []
-        gap_row = self.gap_index[0]
-
-        if gap_row != 0:
-            for shifts in range(1, (self.cols / 2) + 1):
-                sidewards_movements.append(('R', '*', shifts))
-            for shifts in range(1, self.cols - (self.cols / 2)):
-                sidewards_movements.append(('L', '*', shifts))
-        return sidewards_movements
-
     def _gap_movements(self):
         """
         Get all movements the gap is able to do.
 
         return:
-            [list] The total movements from side, up and downwards
+            [list] The total movements from up and downwards
         """
-        gap_movements = self._downward_movements()
-        gap_movements.extend(self._upward_movements())
-        gap_movements.extend(self._sidewards_movements())
+        gap_movements = self._gap_downward_movements()
+        gap_movements.extend(self._gap_upward_movements())
         return gap_movements
 
     def _top_locked(self):
@@ -256,7 +239,7 @@ class BabylonNode(Node):
             row2 = other.grid[i]
 
             for idx1 in range(self.cols):
-                row3 = row2 if row1[idx1] in row2 else other._nearest_row(i, row1[idx1])
+                row3 = row2  # if row1[idx1] in row2 else other._nearest_row(i, row1[idx1])
                 try:
                     idx2 = util._find(row3, row1[idx1], idx1)
                     if idx1 + idx2 == self.cols:
@@ -284,7 +267,7 @@ class BabylonNode(Node):
             row2 = [other.grid[j][i] for j in range(other.rows)]
 
             for idx1 in range(self.rows):
-                row3 = row2 if row1[idx1] in row2 else other._nearest_col(i, row1[idx1])
+                row3 = row2  # if row1[idx1] in row2 else other._nearest_col(i, row1[idx1])
                 try:
                     idx2 = util._find(row3, row1[idx1], idx1)
                     col_cost += abs(idx1 - idx2)
