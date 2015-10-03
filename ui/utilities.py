@@ -57,6 +57,7 @@ def move_downward(matrix):
                 return matrix
         count += 1
 
+
 def get_operation_name(image):
     images = {
         'red_ball.png': 'R',
@@ -66,16 +67,30 @@ def get_operation_name(image):
         'black_dice.png': '*'
     }
 
+
 def get_movement_description(movement):
     orientation = movement[0]
     target_cell = movement[1]
     shifts = movement[2]
+    description = "Desplace "
 
-    description = "Mueva la "
+    if target_cell == '*':
+        description += describe_gap_shifts(orientation, shifts)
+        return description
+    description = "Gire la "
     description += get_cell_type(target_cell)
     description += "hacia "
     description += get_orientation_description(orientation)
     description += get_shifts_description(shifts)
+
+    return description
+
+
+def describe_gap_shifts(orientation, shifts):
+    description = str(shifts)
+    description += " esferas " if shifts > 1 else " esfera "
+    description += "hacia "
+    description += "arriba " if orientation == 'D' else "abajo "
     return description
 
 
@@ -86,12 +101,11 @@ def get_orientation_description(orientation):
         'U': "arriba ",
         'D': "abajo "
     }
-    return descriptions.get(orientation);
+    return descriptions.get(orientation)
 
 
 def get_cell_type(cell):
     types = {
-        '*': "muesca ",
         0: "primera fila ",
         1: "segunda fila ",
         2: "tercera fila ",
