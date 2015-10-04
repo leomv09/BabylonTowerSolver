@@ -16,14 +16,25 @@ def get_image_name(operation):
 
 def get_matrix_image_name(color_id):
     images = {
-        'R': 'red_ball_small.png',
-        'G': 'green_ball_small.png',
-        'B': 'blue_ball_small.png',
-        'Y': 'yellow_ball_small.png',
-        '*': 'wildcard_small.png',
-        '-': 'plastic_cover_small.png'
+        'R': 'img/red_ball_small.png',
+        'G': 'img/green_ball_small.png',
+        'B': 'img/blue_ball_small.png',
+        'Y': 'img/yellow_ball_small.png',
+        '*': 'img/wildcard_small.png',
+        '-': 'img/plastic_cover_small.png'
     }
     return images.get(color_id)
+
+def get_operation_name(image):
+    images = {
+        'img/red_ball_small.png': 'R',
+        'img/green_ball_small.png': 'G',
+        'img/blue_ball_small.png': 'B',
+        'img/yellow_ball_small.png': 'Y',
+        'img/wildcard_small.png': '*',
+        'img/plastic_cover_small.png': '-'
+    }
+    return images.get(image)
 
 def has_upward_moves(matrix):
     count = 0
@@ -68,16 +79,6 @@ def move_downward(matrix):
                 return matrix
         count += 1
 
-
-def get_operation_name(image):
-    images = {
-        'red_ball.png': 'R',
-        'green_ball.png': 'G',
-        'blue_ball.png': 'B',
-        'yellow_ball.png': 'Y',
-        'black_dice.png': '*'
-    }
-    return images.get(image)
 
 def get_movement_description(movement):
     orientation = movement[0]
