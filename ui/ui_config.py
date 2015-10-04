@@ -4,7 +4,7 @@ pygtk.require("2.0")
 import gtk
 import utilities
 import file_parser
-import os.path, sys
+import os.path
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir))
 import core.babylon_node
 import core.astar
@@ -26,22 +26,26 @@ class AppGTK:
         self.movement_index = 0
         self.solution_grids_index = 0
         self.indexes = [self.current_index_row_0, self.current_index_row_1, self.current_index_row_2, self.current_index_row_3, self.current_index_row_4]
+        self.matrix_1_selected_color = ""
 
         self.cw_toy_images = []
         self.sw_toy_images = []
 
+        """ Create the builder for each window """
         self.start_window_builder = gtk.Builder()
         self.configuration_window_builder = gtk.Builder()
         self.solution_window_builder = gtk.Builder()
         self.loading_window_builder = gtk.Builder()
         self.user_manual_window_builder = gtk.Builder()
 
+        """ Obtain the glade file for each window """
         self.start_window_builder.add_from_file("start_window.glade")
         self.configuration_window_builder.add_from_file("configuration_window.glade")
         self.solution_window_builder.add_from_file("solution_window.glade")
         self.loading_window_builder.add_from_file("loading_window.glade")
         self.user_manual_window_builder.add_from_file("user_manual.glade")
 
+        """ Get the main components from the XML file """
         self.main_window = self.start_window_builder.get_object("main_window")
         self.configuration_window = self.configuration_window_builder.get_object("main_window")
         self.solution_window = self.solution_window_builder.get_object("main_window")
@@ -111,64 +115,14 @@ class AppGTK:
         parameters:
             [AppGTK] self -- the self instance.
         """
-        self.cw_upward_button = self.configuration_window_builder.get_object("upward_button")
-        self.cw_upward_button2 = self.configuration_window_builder.get_object("upward_button2")
-        self.cw_upward_button.connect("clicked", self.move_upward)
-        self.cw_upward_button2.connect("clicked", self.move_upward, 2)
-        self.cw_downward_button = self.configuration_window_builder.get_object("downward_button")
-        self.cw_downward_button2 = self.configuration_window_builder.get_object("downward_button2")
-        self.cw_downward_button.connect("clicked", self.move_downward)
-        self.cw_downward_button2.connect("clicked", self.move_downward, 2)
         self.cw_start_button = self.configuration_window_builder.get_object("start_button")
+        self.cw_matrix_1_select_red = self.configuration_window_builder.get_object("select_red_ball_button_1")
+        self.cw_matrix_1_select_red.connect("clicked", self.change_selected_color, 1,'R')
 
 
-        self.cw_backward_button1 = self.configuration_window_builder.get_object("backward_button1")
-        self.cw_backward_button2 = self.configuration_window_builder.get_object("backward_button2")
-        self.cw_backward_button3 = self.configuration_window_builder.get_object("backward_button3")
-        self.cw_backward_button4 = self.configuration_window_builder.get_object("backward_button4")
-        self.cw_backward_button5 = self.configuration_window_builder.get_object("backward_button5")
+        self.cw_matrix_1_select_green = self.configuration_window_builder.get_object("select_green_ball_button_1")
+        self.cw_matrix_1_select_green.connect("clicked", self.change_selected_color, 1,'G')
 
-        self.cw_forward_button1 = self.configuration_window_builder.get_object("forward_button1")
-        self.cw_forward_button2 = self.configuration_window_builder.get_object("forward_button2")
-        self.cw_forward_button3 = self.configuration_window_builder.get_object("forward_button3")
-        self.cw_forward_button4 = self.configuration_window_builder.get_object("forward_button4")
-        self.cw_forward_button5 = self.configuration_window_builder.get_object("forward_button5")
-
-        self.cw_forward_button1.connect("clicked", self.configuration_move_right_row, 0, 1)
-        self.cw_forward_button2.connect("clicked", self.configuration_move_right_row, 1, 1)
-        self.cw_forward_button3.connect("clicked", self.configuration_move_right_row, 2, 1)
-        self.cw_forward_button4.connect("clicked", self.configuration_move_right_row, 3, 1)
-        self.cw_forward_button5.connect("clicked", self.configuration_move_right_row, 4, 1)
-
-        self.cw_backward_button1.connect("clicked", self.configuration_move_left_row, 0, 1)
-        self.cw_backward_button2.connect("clicked", self.configuration_move_left_row, 1, 1)
-        self.cw_backward_button3.connect("clicked", self.configuration_move_left_row, 2, 1)
-        self.cw_backward_button4.connect("clicked", self.configuration_move_left_row, 3, 1)
-        self.cw_backward_button5.connect("clicked", self.configuration_move_left_row, 4, 1)
-
-        self.cw_backward_button6 = self.configuration_window_builder.get_object("backward_button6")
-        self.cw_backward_button7 = self.configuration_window_builder.get_object("backward_button7")
-        self.cw_backward_button8 = self.configuration_window_builder.get_object("backward_button8")
-        self.cw_backward_button9 = self.configuration_window_builder.get_object("backward_button9")
-        self.cw_backward_button10 = self.configuration_window_builder.get_object("backward_button10")
-
-        self.cw_forward_button6 = self.configuration_window_builder.get_object("forward_button6")
-        self.cw_forward_button7 = self.configuration_window_builder.get_object("forward_button7")
-        self.cw_forward_button8 = self.configuration_window_builder.get_object("forward_button8")
-        self.cw_forward_button9 = self.configuration_window_builder.get_object("forward_button9")
-        self.cw_forward_button10 = self.configuration_window_builder.get_object("forward_button10")
-
-        self.cw_forward_button6.connect("clicked", self.configuration_move_right_row, 0, 2)
-        self.cw_forward_button7.connect("clicked", self.configuration_move_right_row, 1, 2)
-        self.cw_forward_button8.connect("clicked", self.configuration_move_right_row, 2, 2)
-        self.cw_forward_button9.connect("clicked", self.configuration_move_right_row, 3, 2)
-        self.cw_forward_button10.connect("clicked", self.configuration_move_right_row, 4, 2)
-
-        self.cw_backward_button6.connect("clicked", self.configuration_move_left_row, 0, 2)
-        self.cw_backward_button7.connect("clicked", self.configuration_move_left_row, 1, 2)
-        self.cw_backward_button8.connect("clicked", self.configuration_move_left_row, 2, 2)
-        self.cw_backward_button9.connect("clicked", self.configuration_move_left_row, 3, 2)
-        self.cw_backward_button10.connect("clicked", self.configuration_move_left_row, 4, 2)
 
     def set_solution_window_buttons(self):
         """ Obtains all the buttons from the solution XML file
@@ -216,6 +170,15 @@ class AppGTK:
         content_label = self.user_manual_window.get_object("content_label")
         content_label.set_text(utilities.readFile("user_manual.txt"))
 
+    def change_selected_color(self, widget, matrix_id, color_id):
+        print(color_id)
+        if(matrix_id == 1):
+            self.matrix_1_selected_color = utilities.get_matrix_image_name(color_id)
+            #image = utilities.get_image_name(operation_set[0])
+            #gtk_object = images[index+id]
+            #gtk_object.set_from_file('img/'+image)
+
+
 
     def start_configuration_window(self, widget, config_window, parent_window):
         """ Shows the configuration window.
@@ -226,8 +189,8 @@ class AppGTK:
             [gtk.Object] config_window -- The start window object(parent).
         """
         if(config_window and parent_window):
-            self.load_congiguration_matrix(self.startMatrix1)
-            self.load_congiguration_matrix(self.startMatrix2, 5)
+            #self.load_congiguration_matrix(self.startMatrix1)
+            #self.load_congiguration_matrix(self.startMatrix2, 5)
             config_window.show()
 
     def start_solution_window(self, widget, solution_window, parent_window):

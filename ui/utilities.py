@@ -14,6 +14,17 @@ def get_image_name(operation):
     }
     return images.get(operation)
 
+def get_matrix_image_name(color_id):
+    images = {
+        'R': 'red_ball_small.png',
+        'G': 'green_ball_small.png',
+        'B': 'blue_ball_small.png',
+        'Y': 'yellow_ball_small.png',
+        '*': 'wildcard_small.png',
+        '-': 'plastic_cover_small.png'
+    }
+    return images.get(color_id)
+
 def has_upward_moves(matrix):
     count = 0
     for matrix_set in matrix:
@@ -66,7 +77,7 @@ def get_operation_name(image):
         'yellow_ball.png': 'Y',
         'black_dice.png': '*'
     }
-
+    return images.get(image)
 
 def get_movement_description(movement):
     orientation = movement[0]
@@ -88,7 +99,7 @@ def get_movement_description(movement):
 
 def describe_gap_shifts(orientation, shifts):
     description = str(shifts)
-    description += " esferas " if shifts > 1 else " esfera "
+    description += " bolas " if shifts > 1 else " bola "
     description += "hacia "
     description += "arriba " if orientation == 'D' else "abajo "
     return description

@@ -592,6 +592,36 @@
             <property name="y">630</property>
           </packing>
         </child>
+        <child>
+          <object class="GtkButton" id="rotate_right_button">
+            <property name="label" translatable="yes">Rotar Derecha
+</property>
+            <property name="width_request">100</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="yalign">0.47999998927116394</property>
+          </object>
+          <packing>
+            <property name="x">300</property>
+            <property name="y">110</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="rotate_left_button">
+            <property name="label" translatable="yes">Rotar Izquierda	</property>
+            <property name="width_request">100</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+          </object>
+          <packing>
+            <property name="x">95</property>
+            <property name="y">110</property>
+          </packing>
+        </child>
       </object>
     </child>
   </object>

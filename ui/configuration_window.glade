@@ -2,138 +2,125 @@
 <interface>
   <requires lib="gtk+" version="2.24"/>
   <!-- interface-naming-policy toplevel-contextual -->
-  <object class="GtkImage" id="backward_arrow1">
+  <object class="GtkImage" id="ball_1_0_0">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/backward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="backward_arrow10">
+  <object class="GtkImage" id="ball_1_0_1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/backward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="backward_arrow2">
+  <object class="GtkImage" id="ball_1_0_2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/backward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="backward_arrow3">
+  <object class="GtkImage" id="ball_1_0_3">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/backward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="backward_arrow4">
+  <object class="GtkImage" id="ball_1_1_0">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/backward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="backward_arrow5">
+  <object class="GtkImage" id="ball_1_1_1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/backward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="backward_arrow6">
+  <object class="GtkImage" id="ball_1_1_2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/backward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="backward_arrow7">
+  <object class="GtkImage" id="ball_1_1_3">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/backward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="backward_arrow8">
+  <object class="GtkImage" id="ball_1_2_0">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/backward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="backward_arrow9">
+  <object class="GtkImage" id="ball_1_2_1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/backward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="downward_arrow">
+  <object class="GtkImage" id="ball_1_2_2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/downward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="downward_arrow2">
+  <object class="GtkImage" id="ball_1_2_3">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/downward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="forward_arrow">
+  <object class="GtkImage" id="ball_1_3_0">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/forward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="forward_arrow1">
+  <object class="GtkImage" id="ball_1_3_1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/forward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="forward_arrow10">
+  <object class="GtkImage" id="ball_1_3_2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/forward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="forward_arrow2">
+  <object class="GtkImage" id="ball_1_3_3">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/forward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="forward_arrow3">
+  <object class="GtkImage" id="ball_1_4_0">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/forward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="forward_arrow4">
+  <object class="GtkImage" id="ball_1_4_1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/forward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="forward_arrow6">
+  <object class="GtkImage" id="ball_1_4_2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/forward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="forward_arrow7">
+  <object class="GtkImage" id="ball_1_4_3">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/forward_arrow.png</property>
   </object>
-  <object class="GtkImage" id="forward_arrow8">
+  <object class="GtkImage" id="blue_ball_1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/forward_arrow.png</property>
+    <property name="pixbuf">img/blue_ball_small.png</property>
   </object>
-  <object class="GtkImage" id="forward_arrow9">
+  <object class="GtkImage" id="green_ball_1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/forward_arrow.png</property>
+    <property name="pixbuf">img/green_ball_small.png</property>
   </object>
-  <object class="GtkImage" id="upward_arrow">
+  <object class="GtkImage" id="red_ball_1">
+    <property name="width_request">40</property>
+    <property name="height_request">30</property>
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/upward_arrow.png</property>
+    <property name="pixbuf">img/red_ball_small.png</property>
   </object>
-  <object class="GtkImage" id="upward_arrow2">
+  <object class="GtkImage" id="wildcard_1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/upward_arrow.png</property>
+    <property name="pixbuf">img/wildcard_small.png</property>
+  </object>
+  <object class="GtkImage" id="yellow_ball_1">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">img/yellow_ball_small.png</property>
   </object>
   <object class="GtkWindow" id="main_window">
     <property name="can_focus">False</property>
     <property name="window_position">center</property>
-    <property name="default_width">1000</property>
-    <property name="default_height">750</property>
+    <property name="default_width">800</property>
+    <property name="default_height">600</property>
     <child>
       <object class="GtkFixed" id="back_panel">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>
           <object class="GtkMenuBar" id="menubar">
-            <property name="width_request">1000</property>
+            <property name="width_request">800</property>
             <property name="height_request">45</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -236,255 +223,6 @@
           </object>
         </child>
         <child>
-          <object class="GtkImage" id="toy_background">
-            <property name="width_request">220</property>
-            <property name="height_request">480</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="ypad">2</property>
-            <property name="pixbuf">img/background.png</property>
-          </object>
-          <packing>
-            <property name="x">110</property>
-            <property name="y">160</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkImage" id="ball1">
-            <property name="width_request">100</property>
-            <property name="height_request">80</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="yalign">0.50999999046325684</property>
-            <property name="ypad">3</property>
-            <property name="pixbuf">img/black_dice.png</property>
-          </object>
-          <packing>
-            <property name="x">175</property>
-            <property name="y">205</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkImage" id="ball2">
-            <property name="width_request">100</property>
-            <property name="height_request">80</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="pixbuf">img/green_ball.png</property>
-          </object>
-          <packing>
-            <property name="x">175</property>
-            <property name="y">285</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkImage" id="ball3">
-            <property name="width_request">100</property>
-            <property name="height_request">80</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="pixbuf">img/green_ball.png</property>
-          </object>
-          <packing>
-            <property name="x">175</property>
-            <property name="y">370</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkImage" id="ball4">
-            <property name="width_request">100</property>
-            <property name="height_request">80</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="pixbuf">img/green_ball.png</property>
-          </object>
-          <packing>
-            <property name="x">175</property>
-            <property name="y">450</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkImage" id="ball5">
-            <property name="width_request">100</property>
-            <property name="height_request">80</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="pixbuf">img/green_ball.png</property>
-          </object>
-          <packing>
-            <property name="x">175</property>
-            <property name="y">530</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="backward_button1">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">backward_arrow1</property>
-          </object>
-          <packing>
-            <property name="x">30</property>
-            <property name="y">240</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="forward_button1">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">forward_arrow1</property>
-          </object>
-          <packing>
-            <property name="x">340</property>
-            <property name="y">240</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="backward_button2">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">backward_arrow2</property>
-          </object>
-          <packing>
-            <property name="x">30</property>
-            <property name="y">320</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="backward_button3">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">backward_arrow3</property>
-          </object>
-          <packing>
-            <property name="x">30</property>
-            <property name="y">400</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="backward_button4">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">backward_arrow4</property>
-          </object>
-          <packing>
-            <property name="x">30</property>
-            <property name="y">480</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="backward_button5">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">backward_arrow5</property>
-          </object>
-          <packing>
-            <property name="x">30</property>
-            <property name="y">550</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="forward_button2">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">forward_arrow2</property>
-          </object>
-          <packing>
-            <property name="x">340</property>
-            <property name="y">320</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="forward_button3">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">forward_arrow3</property>
-          </object>
-          <packing>
-            <property name="x">340</property>
-            <property name="y">400</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="forward_button4">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">forward_arrow4</property>
-          </object>
-          <packing>
-            <property name="x">340</property>
-            <property name="y">480</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="forward_button5">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">forward_arrow</property>
-          </object>
-          <packing>
-            <property name="x">340</property>
-            <property name="y">560</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="downward_button">
-            <property name="width_request">40</property>
-            <property name="height_request">70</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">downward_arrow</property>
-          </object>
-          <packing>
-            <property name="x">175</property>
-            <property name="y">640</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="upward_button">
-            <property name="width_request">40</property>
-            <property name="height_request">70</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">upward_arrow</property>
-          </object>
-          <packing>
-            <property name="x">200</property>
-            <property name="y">90</property>
-          </packing>
-        </child>
-        <child>
           <object class="GtkLabel" id="label1">
             <property name="width_request">200</property>
             <property name="height_request">30</property>
@@ -512,27 +250,14 @@
             <property name="image_position">right</property>
           </object>
           <packing>
-            <property name="x">860</property>
-            <property name="y">660</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkImage" id="ready_image">
-            <property name="width_request">40</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="stock">gtk-apply</property>
-          </object>
-          <packing>
-            <property name="x">930</property>
-            <property name="y">660</property>
+            <property name="x">390</property>
+            <property name="y">500</property>
           </packing>
         </child>
         <child>
           <object class="GtkVSeparator" id="vseparator1">
             <property name="width_request">30</property>
-            <property name="height_request">750</property>
+            <property name="height_request">450</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
           </object>
@@ -560,249 +285,835 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="backward_button6">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
+          <object class="GtkFixed" id="matrix_config_panel_2">
+            <property name="width_request">400</property>
+            <property name="height_request">350</property>
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">backward_arrow6</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel" id="label3">
+                <property name="width_request">150</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Seleccione el color:</property>
+              </object>
+              <packing>
+                <property name="x">10</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label4">
+                <property name="width_request">40</property>
+                <property name="height_request">20</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="xalign">0</property>
+                <property name="yalign">0</property>
+                <property name="label" translatable="yes">Fila 1	</property>
+              </object>
+              <packing>
+                <property name="x">40</property>
+                <property name="y">110</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="muesca">
+                <property name="width_request">150</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Seleccione muesca:</property>
+              </object>
+              <packing>
+                <property name="x">10</property>
+                <property name="y">45</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label5">
+                <property name="width_request">40</property>
+                <property name="height_request">20</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="xalign">0</property>
+                <property name="yalign">0</property>
+                <property name="label" translatable="yes">Fila 2		</property>
+              </object>
+              <packing>
+                <property name="x">40</property>
+                <property name="y">140</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkHSeparator" id="hseparator1">
+                <property name="width_request">180</property>
+                <property name="height_request">10</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">100</property>
+                <property name="y">124</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkVSeparator" id="vseparator2">
+                <property name="width_request">10</property>
+                <property name="height_request">180</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">138</property>
+                <property name="y">90</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkVSeparator" id="vseparator3">
+                <property name="width_request">10</property>
+                <property name="height_request">180</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">183</property>
+                <property name="y">90</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkVSeparator" id="vseparator4">
+                <property name="width_request">10</property>
+                <property name="height_request">180</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">228</property>
+                <property name="y">90</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkHSeparator" id="hseparator2">
+                <property name="width_request">180</property>
+                <property name="height_request">10</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">100</property>
+                <property name="y">159</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkHSeparator" id="hseparator3">
+                <property name="width_request">180</property>
+                <property name="height_request">10</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">100</property>
+                <property name="y">194</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkHSeparator" id="hseparator4">
+                <property name="width_request">180</property>
+                <property name="height_request">10</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">100</property>
+                <property name="y">229</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label6">
+                <property name="width_request">40</property>
+                <property name="height_request">20</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Fila 3	</property>
+                <property name="angle">0.01</property>
+              </object>
+              <packing>
+                <property name="x">40</property>
+                <property name="y">170</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label7">
+                <property name="width_request">40</property>
+                <property name="height_request">20</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Fila 4	</property>
+              </object>
+              <packing>
+                <property name="x">40</property>
+                <property name="y">200</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label8">
+                <property name="width_request">40</property>
+                <property name="height_request">20</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Fila 5	</property>
+              </object>
+              <packing>
+                <property name="x">40</property>
+                <property name="y">230</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label9">
+                <property name="width_request">60</property>
+                <property name="height_request">20</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Columna 1</property>
+              </object>
+              <packing>
+                <property name="x">82</property>
+                <property name="y">284</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="select_red_ball_button_1">
+                <property name="width_request">47</property>
+                <property name="height_request">35</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">red_ball_1</property>
+                <property name="relief">none</property>
+                <property name="image_position">top</property>
+              </object>
+              <packing>
+                <property name="x">162</property>
+                <property name="y">5</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="select_green_ball_button_1">
+                <property name="width_request">47</property>
+                <property name="height_request">35</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">green_ball_1</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">212</property>
+                <property name="y">5</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="select_blue_ball_button_1">
+                <property name="width_request">47</property>
+                <property name="height_request">35</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">blue_ball_1</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">257</property>
+                <property name="y">5</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="select_yellow_ball_1">
+                <property name="width_request">47</property>
+                <property name="height_request">35</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">yellow_ball_1</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">302</property>
+                <property name="y">5</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="select_wildcard_1">
+                <property name="width_request">47</property>
+                <property name="height_request">35</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">wildcard_1</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">162</property>
+                <property name="y">45</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_0_0">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_0_0</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">100</property>
+                <property name="y">95</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_0_1">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_0_1</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">145</property>
+                <property name="y">95</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_0_2">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_0_2</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">190</property>
+                <property name="y">95</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_0_3">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_0_3</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">235</property>
+                <property name="y">95</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_1_0">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_1_0</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">100</property>
+                <property name="y">130</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_1_1">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_1_1</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">145</property>
+                <property name="y">130</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_1_2">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_1_2</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">190</property>
+                <property name="y">130</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_1_3">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_1_3</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">235</property>
+                <property name="y">130</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_2_0">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_2_0</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">100</property>
+                <property name="y">165</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_2_1">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_2_1</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">145</property>
+                <property name="y">165</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_2_2">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_2_2</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">190</property>
+                <property name="y">165</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_2_3">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_2_3</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">235</property>
+                <property name="y">165</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_3_0">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_3_0</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">100</property>
+                <property name="y">200</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_3_1">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_3_1</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">145</property>
+                <property name="y">200</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_3_2">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_3_2</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">190</property>
+                <property name="y">200</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_3_3">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_3_3</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">235</property>
+                <property name="y">200</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_4_0">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_4_0</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">100</property>
+                <property name="y">235</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_4_1">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_4_1</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">145</property>
+                <property name="y">235</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_4_2">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_4_2</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">190</property>
+                <property name="y">235</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="matrix_1_4_3">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">ball_1_4_3</property>
+                <property name="relief">none</property>
+              </object>
+              <packing>
+                <property name="x">235</property>
+                <property name="y">235</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="x">10</property>
+            <property name="y">150</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFixed" id="matrix_config_panel_1">
+            <property name="width_request">400</property>
+            <property name="height_request">350</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkImage" id="matrix_2_0_0">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">100</property>
+                <property name="y">95</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="matrix_2_0_1">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">145</property>
+                <property name="y">95</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="matrix_2_0_2">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">190</property>
+                <property name="y">95</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="matrix_2_0_3">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">235</property>
+                <property name="y">95</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="matrix_2_1_0">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">100</property>
+                <property name="y">130</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="matrix_2_1_1">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">145</property>
+                <property name="y">130</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="matrix_2_1_2">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">190</property>
+                <property name="y">130</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="matrix_2_1_3">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">235</property>
+                <property name="y">130</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="matrix_2_2_0">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">100</property>
+                <property name="y">165</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="matrix_2_2_1">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">145</property>
+                <property name="y">165</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="matrix_2_2_2">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">190</property>
+                <property name="y">165</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="matrix_2_2_3">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">235</property>
+                <property name="y">165</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="matrix_2_3_0">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">100</property>
+                <property name="y">200</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="matrix_2_3_1">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">145</property>
+                <property name="y">200</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="matrix_2_3_2">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">190</property>
+                <property name="y">200</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="matrix_2_3_3">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">235</property>
+                <property name="y">200</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="matrix_2_4_0">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">100</property>
+                <property name="y">235</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="imatrix_2_4_1">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">145</property>
+                <property name="y">235</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="matrix_2_4_2">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">190</property>
+                <property name="y">235</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="matrix_2_4_3">
+                <property name="width_request">40</property>
+                <property name="height_request">30</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="x">235</property>
+                <property name="y">235</property>
+              </packing>
+            </child>
           </object>
           <packing>
             <property name="x">450</property>
-            <property name="y">240</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkImage" id="toy_background2">
-            <property name="width_request">220</property>
-            <property name="height_request">480</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="pixbuf">img/background.png</property>
-          </object>
-          <packing>
-            <property name="x">535</property>
-            <property name="y">160</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkImage" id="ball6">
-            <property name="width_request">100</property>
-            <property name="height_request">80</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="pixbuf">img/black_dice.png</property>
-          </object>
-          <packing>
-            <property name="x">595</property>
-            <property name="y">205</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkImage" id="ball7">
-            <property name="width_request">100</property>
-            <property name="height_request">80</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="pixbuf">img/green_ball.png</property>
-          </object>
-          <packing>
-            <property name="x">595</property>
-            <property name="y">285</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkImage" id="ball8">
-            <property name="width_request">100</property>
-            <property name="height_request">80</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="pixbuf">img/green_ball.png</property>
-          </object>
-          <packing>
-            <property name="x">595</property>
-            <property name="y">370</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkImage" id="ball9">
-            <property name="width_request">100</property>
-            <property name="height_request">80</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="pixbuf">img/green_ball.png</property>
-          </object>
-          <packing>
-            <property name="x">595</property>
-            <property name="y">450</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkImage" id="ball10">
-            <property name="width_request">100</property>
-            <property name="height_request">80</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="pixbuf">img/green_ball.png</property>
-          </object>
-          <packing>
-            <property name="x">595</property>
-            <property name="y">530</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="backward_button7">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">backward_arrow7</property>
-          </object>
-          <packing>
-            <property name="x">450</property>
-            <property name="y">320</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="backward_button8">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">backward_arrow8</property>
-          </object>
-          <packing>
-            <property name="x">450</property>
-            <property name="y">400</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="backward_button9">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">backward_arrow9</property>
-          </object>
-          <packing>
-            <property name="x">450</property>
-            <property name="y">480</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="backward_button10">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">backward_arrow10</property>
-          </object>
-          <packing>
-            <property name="x">450</property>
-            <property name="y">560</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="forward_button6">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">forward_arrow6</property>
-          </object>
-          <packing>
-            <property name="x">775</property>
-            <property name="y">240</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="forward_button7">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">forward_arrow7</property>
-          </object>
-          <packing>
-            <property name="x">775</property>
-            <property name="y">320</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="forward_button8">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">forward_arrow8</property>
-          </object>
-          <packing>
-            <property name="x">775</property>
-            <property name="y">400</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="forward_button9">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">forward_arrow9</property>
-          </object>
-          <packing>
-            <property name="x">775</property>
-            <property name="y">480</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="forward_button10">
-            <property name="width_request">70</property>
-            <property name="height_request">40</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">forward_arrow10</property>
-          </object>
-          <packing>
-            <property name="x">775</property>
-            <property name="y">560</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="downward_button2">
-            <property name="width_request">40</property>
-            <property name="height_request">70</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">downward_arrow2</property>
-          </object>
-          <packing>
-            <property name="x">630</property>
-            <property name="y">640</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="upward_button2">
-            <property name="width_request">40</property>
-            <property name="height_request">70</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="image">upward_arrow2</property>
-          </object>
-          <packing>
-            <property name="x">630</property>
-            <property name="y">90</property>
+            <property name="y">150</property>
           </packing>
         </child>
       </object>
