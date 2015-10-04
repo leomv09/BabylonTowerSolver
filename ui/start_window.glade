@@ -146,29 +146,15 @@
           </packing>
         </child>
         <child>
-          <object class="GtkImage" id="image2">
-            <property name="width_request">50</property>
+          <object class="GtkFileChooserButton" id="file_chooser_button">
+            <property name="width_request">150</property>
             <property name="height_request">50</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="stock">gtk-add</property>
           </object>
           <packing>
-            <property name="x">360</property>
-            <property name="y">160</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkImage" id="image3">
-            <property name="width_request">50</property>
-            <property name="height_request">50</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="stock">gtk-go-forward</property>
-          </object>
-          <packing>
-            <property name="x">360</property>
-            <property name="y">230</property>
+            <property name="x">210</property>
+            <property name="y">90</property>
           </packing>
         </child>
         <child>
@@ -182,18 +168,6 @@
           </object>
           <packing>
             <property name="x">370</property>
-            <property name="y">90</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkFileChooserButton" id="file_chooser_button">
-            <property name="width_request">150</property>
-            <property name="height_request">50</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-          </object>
-          <packing>
-            <property name="x">210</property>
             <property name="y">90</property>
           </packing>
         </child>

@@ -158,125 +158,125 @@ class AppGTK:
         #Matrix buttons
         self.cw_matrix_1_0_0 = self.configuration_window_builder.get_object("matrix_1_0_0")
         self.cw_ball_1_0_0 = self.configuration_window_builder.get_object("ball_1_0_0")
-        self.cw_matrix_1_0_0.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_0_0)
+        self.cw_matrix_1_0_0.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_0_0, 0, 0)
         self.cw_matrix_1_0_1 = self.configuration_window_builder.get_object("matrix_1_0_1")
         self.cw_ball_1_0_1 = self.configuration_window_builder.get_object("ball_1_0_1")
-        self.cw_matrix_1_0_1.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_0_1)
+        self.cw_matrix_1_0_1.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_0_1, 0, 1)
         self.cw_matrix_1_0_2 = self.configuration_window_builder.get_object("matrix_1_0_2")
         self.cw_ball_1_0_2 = self.configuration_window_builder.get_object("ball_1_0_2")
-        self.cw_matrix_1_0_2.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_0_2)
+        self.cw_matrix_1_0_2.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_0_2, 0, 2)
         self.cw_matrix_1_0_3 = self.configuration_window_builder.get_object("matrix_1_0_3")
         self.cw_ball_1_0_3 = self.configuration_window_builder.get_object("ball_1_0_3")
-        self.cw_matrix_1_0_3.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_0_3)
+        self.cw_matrix_1_0_3.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_0_3, 0, 3)
         self.cw_matrix_1_1_0 = self.configuration_window_builder.get_object("matrix_1_1_0")
         self.cw_ball_1_1_0 = self.configuration_window_builder.get_object("ball_1_1_0")
-        self.cw_matrix_1_1_0.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_1_0)
+        self.cw_matrix_1_1_0.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_1_0, 1, 0)
         self.cw_matrix_1_1_1 = self.configuration_window_builder.get_object("matrix_1_1_1")
         self.cw_ball_1_1_1 = self.configuration_window_builder.get_object("ball_1_1_1")
-        self.cw_matrix_1_1_1.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_1_1)
+        self.cw_matrix_1_1_1.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_1_1, 1, 1)
         self.cw_matrix_1_1_2 = self.configuration_window_builder.get_object("matrix_1_1_2")
         self.cw_ball_1_1_2 = self.configuration_window_builder.get_object("ball_1_1_2")
-        self.cw_matrix_1_1_2.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_1_2)
+        self.cw_matrix_1_1_2.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_1_2, 1, 2)
         self.cw_matrix_1_1_3 = self.configuration_window_builder.get_object("matrix_1_1_3")
         self.cw_ball_1_1_3 = self.configuration_window_builder.get_object("ball_1_1_3")
-        self.cw_matrix_1_1_3.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_1_3)
+        self.cw_matrix_1_1_3.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_1_3, 1, 3)
         self.cw_matrix_1_2_0 = self.configuration_window_builder.get_object("matrix_1_2_0")
         self.cw_ball_1_2_0 = self.configuration_window_builder.get_object("ball_1_2_0")
-        self.cw_matrix_1_2_0.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_2_0)
+        self.cw_matrix_1_2_0.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_2_0, 2, 0)
         self.cw_matrix_1_2_1 = self.configuration_window_builder.get_object("matrix_1_2_1")
         self.cw_ball_1_2_1 = self.configuration_window_builder.get_object("ball_1_2_1")
-        self.cw_matrix_1_2_1.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_2_1)
+        self.cw_matrix_1_2_1.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_2_1, 2, 1)
         self.cw_matrix_1_2_2 = self.configuration_window_builder.get_object("matrix_1_2_2")
         self.cw_ball_1_2_2 = self.configuration_window_builder.get_object("ball_1_2_2")
-        self.cw_matrix_1_2_2.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_2_2)
+        self.cw_matrix_1_2_2.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_2_2, 2, 2)
         self.cw_matrix_1_2_3 = self.configuration_window_builder.get_object("matrix_1_2_3")
         self.cw_ball_1_2_3 = self.configuration_window_builder.get_object("ball_1_2_3")
-        self.cw_matrix_1_2_3.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_2_3)
+        self.cw_matrix_1_2_3.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_2_3, 2, 3)
         self.cw_matrix_1_3_0 = self.configuration_window_builder.get_object("matrix_1_3_0")
         self.cw_ball_1_3_0 = self.configuration_window_builder.get_object("ball_1_3_0")
-        self.cw_matrix_1_3_0.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_3_0)
+        self.cw_matrix_1_3_0.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_3_0, 3, 0)
         self.cw_matrix_1_3_1 = self.configuration_window_builder.get_object("matrix_1_3_1")
         self.cw_ball_1_3_1 = self.configuration_window_builder.get_object("ball_1_3_1")
-        self.cw_matrix_1_3_1.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_3_1)
+        self.cw_matrix_1_3_1.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_3_1, 3, 1)
         self.cw_matrix_1_3_2 = self.configuration_window_builder.get_object("matrix_1_3_2")
         self.cw_ball_1_3_2 = self.configuration_window_builder.get_object("ball_1_3_2")
-        self.cw_matrix_1_3_2.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_3_2)
+        self.cw_matrix_1_3_2.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_3_2, 3, 2)
         self.cw_matrix_1_3_3 = self.configuration_window_builder.get_object("matrix_1_3_3")
         self.cw_ball_1_3_3 = self.configuration_window_builder.get_object("ball_1_3_3")
-        self.cw_matrix_1_3_3.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_3_3)
+        self.cw_matrix_1_3_3.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_3_3, 3, 3)
         self.cw_matrix_1_4_0 = self.configuration_window_builder.get_object("matrix_1_4_0")
         self.cw_ball_1_4_0 = self.configuration_window_builder.get_object("ball_1_4_0")
-        self.cw_matrix_1_4_0.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_4_0)
+        self.cw_matrix_1_4_0.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_4_0, 4, 0)
         self.cw_matrix_1_4_1 = self.configuration_window_builder.get_object("matrix_1_4_1")
         self.cw_ball_1_4_1 = self.configuration_window_builder.get_object("ball_1_4_1")
-        self.cw_matrix_1_4_1.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_4_1)
+        self.cw_matrix_1_4_1.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_4_1, 4, 1)
         self.cw_matrix_1_4_2 = self.configuration_window_builder.get_object("matrix_1_4_2")
         self.cw_ball_1_4_2 = self.configuration_window_builder.get_object("ball_1_4_2")
-        self.cw_matrix_1_4_2.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_4_2)
+        self.cw_matrix_1_4_2.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_4_2, 4, 2)
         self.cw_matrix_1_4_3 = self.configuration_window_builder.get_object("matrix_1_4_3")
         self.cw_ball_1_4_3 = self.configuration_window_builder.get_object("ball_1_4_3")
-        self.cw_matrix_1_4_3.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_4_3)
+        self.cw_matrix_1_4_3.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_4_3, 4, 3)
         #Matrix 2
         self.cw_matrix_2_0_0 = self.configuration_window_builder.get_object("matrix_2_0_0")
         self.cw_ball_2_0_0 = self.configuration_window_builder.get_object("ball_2_0_0")
-        self.cw_matrix_2_0_0.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_0_0)
+        self.cw_matrix_2_0_0.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_0_0, 0, 0)
         self.cw_matrix_2_0_1 = self.configuration_window_builder.get_object("matrix_2_0_1")
         self.cw_ball_2_0_1 = self.configuration_window_builder.get_object("ball_2_0_1")
-        self.cw_matrix_2_0_1.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_0_1)
+        self.cw_matrix_2_0_1.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_0_1, 0, 1)
         self.cw_matrix_2_0_2 = self.configuration_window_builder.get_object("matrix_2_0_2")
         self.cw_ball_2_0_2 = self.configuration_window_builder.get_object("ball_2_0_2")
-        self.cw_matrix_2_0_2.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_0_2)
+        self.cw_matrix_2_0_2.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_0_2, 0, 2)
         self.cw_matrix_2_0_3 = self.configuration_window_builder.get_object("matrix_2_0_3")
         self.cw_ball_2_0_3 = self.configuration_window_builder.get_object("ball_2_0_3")
-        self.cw_matrix_2_0_3.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_0_3)
+        self.cw_matrix_2_0_3.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_0_3, 0, 3)
         self.cw_matrix_2_1_0 = self.configuration_window_builder.get_object("matrix_2_1_0")
         self.cw_ball_2_1_0 = self.configuration_window_builder.get_object("ball_2_1_0")
-        self.cw_matrix_2_1_0.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_1_0)
+        self.cw_matrix_2_1_0.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_1_0, 1, 0)
         self.cw_matrix_2_1_1 = self.configuration_window_builder.get_object("matrix_2_1_1")
         self.cw_ball_2_1_1 = self.configuration_window_builder.get_object("ball_2_1_1")
-        self.cw_matrix_2_1_1.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_1_1)
+        self.cw_matrix_2_1_1.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_1_1, 1, 1)
         self.cw_matrix_2_1_2 = self.configuration_window_builder.get_object("matrix_2_1_2")
         self.cw_ball_2_1_2 = self.configuration_window_builder.get_object("ball_2_1_2")
-        self.cw_matrix_2_1_2.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_1_2)
+        self.cw_matrix_2_1_2.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_1_2, 1, 2)
         self.cw_matrix_2_1_3 = self.configuration_window_builder.get_object("matrix_2_1_3")
         self.cw_ball_2_1_3 = self.configuration_window_builder.get_object("ball_2_1_3")
-        self.cw_matrix_2_1_3.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_1_3)
+        self.cw_matrix_2_1_3.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_1_3, 1, 3)
         self.cw_matrix_2_2_0 = self.configuration_window_builder.get_object("matrix_2_2_0")
         self.cw_ball_2_2_0 = self.configuration_window_builder.get_object("ball_2_2_0")
-        self.cw_matrix_2_2_0.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_2_0)
+        self.cw_matrix_2_2_0.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_2_0, 2, 0)
         self.cw_matrix_2_2_1 = self.configuration_window_builder.get_object("matrix_2_2_1")
         self.cw_ball_2_2_1 = self.configuration_window_builder.get_object("ball_2_2_1")
-        self.cw_matrix_2_2_1.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_2_1)
+        self.cw_matrix_2_2_1.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_2_1, 2, 1)
         self.cw_matrix_2_2_2 = self.configuration_window_builder.get_object("matrix_2_2_2")
         self.cw_ball_2_2_2 = self.configuration_window_builder.get_object("ball_2_2_2")
-        self.cw_matrix_2_2_2.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_2_2)
+        self.cw_matrix_2_2_2.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_2_2, 2, 2)
         self.cw_matrix_2_2_3 = self.configuration_window_builder.get_object("matrix_2_2_3")
         self.cw_ball_2_2_3 = self.configuration_window_builder.get_object("ball_2_2_3")
-        self.cw_matrix_2_2_3.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_2_3)
+        self.cw_matrix_2_2_3.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_2_3, 2, 3)
         self.cw_matrix_2_3_0 = self.configuration_window_builder.get_object("matrix_2_3_0")
         self.cw_ball_2_3_0 = self.configuration_window_builder.get_object("ball_2_3_0")
-        self.cw_matrix_2_3_0.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_3_0)
+        self.cw_matrix_2_3_0.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_3_0, 3, 0)
         self.cw_matrix_2_3_1 = self.configuration_window_builder.get_object("matrix_2_3_1")
         self.cw_ball_2_3_1 = self.configuration_window_builder.get_object("ball_2_3_1")
-        self.cw_matrix_2_3_1.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_3_1)
+        self.cw_matrix_2_3_1.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_3_1, 3, 1)
         self.cw_matrix_2_3_2 = self.configuration_window_builder.get_object("matrix_2_3_2")
         self.cw_ball_2_3_2 = self.configuration_window_builder.get_object("ball_2_3_2")
-        self.cw_matrix_2_3_2.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_3_2)
+        self.cw_matrix_2_3_2.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_3_2, 3, 2)
         self.cw_matrix_2_3_3 = self.configuration_window_builder.get_object("matrix_2_3_3")
         self.cw_ball_2_3_3 = self.configuration_window_builder.get_object("ball_2_3_3")
-        self.cw_matrix_2_3_3.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_3_3)
+        self.cw_matrix_2_3_3.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_3_3, 3, 3)
         self.cw_matrix_2_4_0 = self.configuration_window_builder.get_object("matrix_2_4_0")
         self.cw_ball_2_4_0 = self.configuration_window_builder.get_object("ball_2_4_0")
-        self.cw_matrix_2_4_0.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_4_0)
+        self.cw_matrix_2_4_0.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_4_0, 4, 0)
         self.cw_matrix_2_4_1 = self.configuration_window_builder.get_object("matrix_2_4_1")
         self.cw_ball_2_4_1 = self.configuration_window_builder.get_object("ball_2_4_1")
-        self.cw_matrix_2_4_1.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_4_1)
+        self.cw_matrix_2_4_1.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_4_1, 4, 1)
         self.cw_matrix_2_4_2 = self.configuration_window_builder.get_object("matrix_2_4_2")
         self.cw_ball_2_4_2 = self.configuration_window_builder.get_object("ball_2_4_2")
-        self.cw_matrix_2_4_2.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_4_2)
+        self.cw_matrix_2_4_2.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_4_2, 4, 2)
         self.cw_matrix_2_4_3 = self.configuration_window_builder.get_object("matrix_2_4_3")
         self.cw_ball_2_4_3 = self.configuration_window_builder.get_object("ball_2_4_3")
-        self.cw_matrix_2_4_3.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_4_3)
+        self.cw_matrix_2_4_3.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_4_3, 4, 3)
 
     def set_solution_window_buttons(self):
         """ Obtains all the buttons from the solution XML file
@@ -284,21 +284,6 @@ class AppGTK:
         parameters:
             [AppGTK] self -- the self instance.
         """
-        self.sow_upward_button = self.solution_window_builder.get_object("upward_button")
-        self.sow_downward_button = self.solution_window_builder.get_object("downward_button")
-
-        self.sow_backward_button1 = self.solution_window_builder.get_object("backward_button1")
-        self.sow_backward_button2 = self.solution_window_builder.get_object("backward_button2")
-        self.sow_backward_button3 = self.solution_window_builder.get_object("backward_button3")
-        self.sow_backward_button4 = self.solution_window_builder.get_object("backward_button4")
-        self.sow_backward_button5 = self.solution_window_builder.get_object("backward_button5")
-
-        self.sow_forward_button1 = self.solution_window_builder.get_object("forward_button1")
-        self.sow_forward_button2 = self.solution_window_builder.get_object("forward_button2")
-        self.sow_forward_button3 = self.solution_window_builder.get_object("forward_button3")
-        self.sow_forward_button4 = self.solution_window_builder.get_object("forward_button4")
-        self.sow_forward_button5 = self.solution_window_builder.get_object("forward_button5")
-
         self.sow_next_solution_button = self.solution_window_builder.get_object("next_solution_button")
         self.sow_previous_solution_button = self.solution_window_builder.get_object("previous_solution_button")
         self.sow_next_solution_button.connect("clicked", self.show_next_solution)
@@ -332,49 +317,54 @@ class AppGTK:
             self.matrix_2_selected_color = utilities.get_matrix_image_name(color_id)
             self.cw_matrix_2_selected_color.set_from_file(self.matrix_2_selected_color)
 
-    def put_selected_color(self, widget, matrix_id, image_object):
+    def put_selected_color(self, widget, matrix_id, image_object, row, col):
         if matrix_id == 1:
-            if utilities.get_operation_name(self.matrix_1_selected_color) == 'R':
+            selected_color = utilities.get_operation_name(self.matrix_1_selected_color)
+            if selected_color == 'R':
                 if self.matrix_1_red_counter < 4:
                     image_object.set_from_file(utilities.get_matrix_image_name('R'))
                     self.matrix_1_red_counter += 1
-            if utilities.get_operation_name(self.matrix_1_selected_color) == 'G':
+            elif selected_color == 'G':
                 if self.matrix_1_green_counter < 4:
                     image_object.set_from_file(utilities.get_matrix_image_name('G'))
                     self.matrix_1_green_counter += 1
-            if utilities.get_operation_name(self.matrix_1_selected_color) == 'B':
+            elif selected_color == 'B':
                 if self.matrix_1_blue_counter < 4:
                     image_object.set_from_file(utilities.get_matrix_image_name('B'))
                     self.matrix_1_blue_counter += 1
-            if utilities.get_operation_name(self.matrix_1_selected_color) == 'Y':
+            elif selected_color == 'Y':
                 if self.matrix_1_yellow_counter < 4:
                     image_object.set_from_file(utilities.get_matrix_image_name('Y'))
                     self.matrix_1_yellow_counter += 1
-            if utilities.get_operation_name(self.matrix_1_selected_color) == '*':
+            elif selected_color == '*':
                 if self.matrix_1_wildcard_counter < 1:
                     image_object.set_from_file(utilities.get_matrix_image_name('*'))
                     self.matrix_1_wildcard_counter += 1
+            self.start_matrix[row][col] = selected_color
+
         else:
-            if utilities.get_operation_name(self.matrix_2_selected_color) == 'R':
+            selected_color = utilities.get_operation_name(self.matrix_2_selected_color)
+            if selected_color == 'R':
                 if self.matrix_2_red_counter < 4:
                     image_object.set_from_file(utilities.get_matrix_image_name('R'))
                     self.matrix_2_red_counter += 1
-            if utilities.get_operation_name(self.matrix_2_selected_color) == 'G':
+            if selected_color == 'G':
                 if self.matrix_2_green_counter < 4:
                     image_object.set_from_file(utilities.get_matrix_image_name('G'))
                     self.matrix_2_green_counter += 1
-            if utilities.get_operation_name(self.matrix_2_selected_color) == 'B':
+            if selected_color == 'B':
                 if self.matrix_2_blue_counter < 4:
                     image_object.set_from_file(utilities.get_matrix_image_name('B'))
                     self.matrix_2_blue_counter += 1
-            if utilities.get_operation_name(self.matrix_2_selected_color) == 'Y':
+            if selected_color == 'Y':
                 if self.matrix_2_yellow_counter < 4:
                     image_object.set_from_file(utilities.get_matrix_image_name('Y'))
                     self.matrix_2_yellow_counter += 1
-            if utilities.get_operation_name(self.matrix_2_selected_color) == '*':
+            if selected_color == '*':
                 if self.matrix_2_wildcard_counter < 1:
                     image_object.set_from_file(utilities.get_matrix_image_name('*'))
                     self.matrix_2_wildcard_counter += 1
+            self.end_matrix[row][col] = selected_color
 
     def clear_matrix_1(self, widget):
         self.cw_ball_1_0_0.set_from_file(None)
@@ -397,6 +387,12 @@ class AppGTK:
         self.cw_ball_1_4_1.set_from_file(None)
         self.cw_ball_1_4_2.set_from_file(None)
         self.cw_ball_1_4_3.set_from_file(None)
+        self.matrix_1_red_counter = 0
+        self.matrix_1_green_counter = 0
+        self.matrix_1_blue_counter = 0
+        self.matrix_1_yellow_counter = 0
+        self.matrix_1_wildcard_counter = 0
+
 
     def clear_matrix_2(self, widget):
         self.cw_ball_2_0_0.set_from_file(None)
@@ -419,6 +415,11 @@ class AppGTK:
         self.cw_ball_2_4_1.set_from_file(None)
         self.cw_ball_2_4_2.set_from_file(None)
         self.cw_ball_2_4_3.set_from_file(None)
+        self.matrix_2_red_counter = 0
+        self.matrix_2_green_counter = 0
+        self.matrix_2_blue_counter = 0
+        self.matrix_2_yellow_counter = 0
+        self.matrix_2_wildcard_counter = 0
 
 
 
@@ -444,6 +445,11 @@ class AppGTK:
             [gtk.Object] config_window -- The start window object(parent).
         """
         if(solution_window and parent_window):
+            print("\nStart matrix")
+            print(self.start_matrix)
+            print("\nEnd matrix")
+            print(self.end_matrix)
+            print("\n")
             self.loading_window.show()
             start = core.babylon_node.BabylonNode(self.start_matrix)
             goal = core.babylon_node.BabylonNode(self.end_matrix)
