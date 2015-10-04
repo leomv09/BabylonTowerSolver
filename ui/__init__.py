@@ -1,3 +1,3 @@
 """User interface package."""
 
-__all__ = ["ui_config", "user_interface", "utilities", "parser"]
+__all__ = ["ui_config", "user_interface", "utilities", "file"]
