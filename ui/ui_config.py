@@ -1,23 +1,29 @@
 import sys
 import pygtk
+
 pygtk.require("2.0")
 import gtk
 import utilities
 import file
 import os.path
+
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir))
 import core.babylon_node
 import core.astar
 
+
 class AppGTK:
     """ Class that handles the graphic user interface components. """
+
     def __init__(self):
         """ Initializes the components.
         parameters:
             [AppGTK] self -- the self instance.
         """
-        self.start_matrix = [['*', '-', '-', '-'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y']]
-        self.end_matrix = [['*', '-', '-', '-'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y']]
+        self.start_matrix = [['*', '-', '-', '-'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'],
+                             ['R', 'G', 'B', 'Y']]
+        self.end_matrix = [['*', '-', '-', '-'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'],
+                           ['R', 'G', 'B', 'Y']]
         self.current_index_row_0 = 0
         self.current_index_row_1 = 0
         self.current_index_row_2 = 0
@@ -25,7 +31,8 @@ class AppGTK:
         self.current_index_row_4 = 0
         self.movement_index = 0
         self.solution_grids_index = 0
-        self.indexes = [self.current_index_row_0, self.current_index_row_1, self.current_index_row_2, self.current_index_row_3, self.current_index_row_4]
+        self.indexes = [self.current_index_row_0, self.current_index_row_1, self.current_index_row_2,
+                        self.current_index_row_3, self.current_index_row_4]
         self.matrix_1_selected_color = ""
         self.matrix_2_selected_color = ""
         self.matrix_1_red_counter = 0
@@ -40,7 +47,7 @@ class AppGTK:
         self.matrix_2_wildcard_counter = 0
         self.cw_toy_images = []
         self.sw_toy_images = []
-
+        self.current_face = 0
         """ Create the builder for each window """
         self.start_window_builder = gtk.Builder()
         self.configuration_window_builder = gtk.Builder()
@@ -69,25 +76,25 @@ class AppGTK:
         self.set_solution_window_buttons()
         self.set_configuration_window_images()
 
-        if(self.cw_start_button):
-            self.cw_start_button.connect("clicked", self.start_solution_window, self.solution_window, self.configuration_window)
-
+        if (self.cw_start_button):
+            self.cw_start_button.connect("clicked", self.start_solution_window, self.solution_window,
+                                         self.configuration_window)
 
     def connect_windows_signals(self):
         """ Connects the quit signail to the windows.
         parameters:
             [AppGTK] self -- the self instance.
         """
-        if(self.main_window):
+        if (self.main_window):
             self.main_window.connect("destroy", gtk.main_quit)
             self.main_window.show()
-        if(self.configuration_window):
+        if (self.configuration_window):
             self.configuration_window.connect("destroy", gtk.Widget.destroy)
-        if(self.solution_window):
+        if (self.solution_window):
             self.solution_window.connect("destroy", gtk.Widget.destroy)
-        if(self.loading_window):
+        if (self.loading_window):
             self.loading_window.connect("destroy", gtk.Widget.destroy)
-        if(self.user_manual_window):
+        if (self.user_manual_window):
             self.user_manual_window.connect("destroy", gtk.Widget.destroy)
 
     def set_start_window_buttons(self):
@@ -101,8 +108,9 @@ class AppGTK:
         self.load_file_button = self.start_window_builder.get_object("load_file_button")
         self.set_filter()
         self.load_file_button.connect("clicked", self.open_config_from_file)
-        if(self.create_configuration_button):
-            self.create_configuration_button.connect("clicked", self.start_configuration_window, self.configuration_window, self.main_window)
+        if (self.create_configuration_button):
+            self.create_configuration_button.connect("clicked", self.start_configuration_window,
+                                                     self.configuration_window, self.main_window)
 
     def set_filter(self):
         filter = gtk.FileFilter()
@@ -133,7 +141,7 @@ class AppGTK:
         self.cw_matrix_2_clear_button = self.configuration_window_builder.get_object("clean_button_2")
         self.cw_matrix_1_clear_button.connect("clicked", self.clear_matrix_1)
         self.cw_matrix_2_clear_button.connect("clicked", self.clear_matrix_2)
-        #Selection Colors
+        # Selection Colors
         self.cw_matrix_1_select_red = self.configuration_window_builder.get_object("select_red_ball_button_1")
         self.cw_matrix_1_select_red.connect("clicked", self.change_selected_color, 1, 'R')
         self.cw_matrix_1_select_green = self.configuration_window_builder.get_object("select_green_ball_button_1")
@@ -155,7 +163,7 @@ class AppGTK:
         self.cw_matrix_2_select_widlcard = self.configuration_window_builder.get_object("select_wildcard_button_2")
         self.cw_matrix_2_select_widlcard.connect("clicked", self.change_selected_color, 2, '*')
 
-        #Matrix buttons
+        # Matrix buttons
         self.cw_matrix_1_0_0 = self.configuration_window_builder.get_object("matrix_1_0_0")
         self.cw_ball_1_0_0 = self.configuration_window_builder.get_object("ball_1_0_0")
         self.cw_matrix_1_0_0.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_0_0, 0, 0)
@@ -216,7 +224,7 @@ class AppGTK:
         self.cw_matrix_1_4_3 = self.configuration_window_builder.get_object("matrix_1_4_3")
         self.cw_ball_1_4_3 = self.configuration_window_builder.get_object("ball_1_4_3")
         self.cw_matrix_1_4_3.connect("clicked", self.put_selected_color, 1, self.cw_ball_1_4_3, 4, 3)
-        #Matrix 2
+        # Matrix 2
         self.cw_matrix_2_0_0 = self.configuration_window_builder.get_object("matrix_2_0_0")
         self.cw_ball_2_0_0 = self.configuration_window_builder.get_object("ball_2_0_0")
         self.cw_matrix_2_0_0.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_0_0, 0, 0)
@@ -288,29 +296,42 @@ class AppGTK:
         self.sow_previous_solution_button = self.solution_window_builder.get_object("previous_solution_button")
         self.sow_next_solution_button.connect("clicked", self.show_next_solution)
         self.sow_previous_solution_button.connect("clicked", self.show_previous_solution)
+        self.sow_rotate_left_button = self.solution_window_builder.get_object("rotate_left_button")
+        self.sow_rotate_left_button.connect("clicked", self.rotate_left)
+        self.sow_rotate_right_button = self.solution_window_builder.get_object("rotate_right_button")
+        self.sow_rotate_right_button.connect("clicked", self.rotate_right)
 
     def show_next_solution(self, widget):
-        if(not self.movement_index + 1 > len(self.movements)-1):
+        if (not self.movement_index + 1 > len(self.movements) - 1):
             self.movement_index += 1
             self.print_step()
-        if(not self.solution_grids_index +1 > len(self.solution_grids)-1):
-            self.solution_grids_index +=1
+        if (not self.solution_grids_index + 1 > len(self.solution_grids) - 1):
+            self.solution_grids_index += 1
             self.paint_solution_matrix(self.solution_grids, self.solution_grids_index)
 
     def show_previous_solution(self, widget):
-        if(not self.movement_index - 1 < 0):
-            self.movement_index -=1
+        if (not self.movement_index - 1 < 0):
+            self.movement_index -= 1
             self.print_step()
-        if(not self.solution_grids_index - 1 < 0):
-            self.solution_grids_index -=1
+        if (not self.solution_grids_index - 1 < 0):
+            self.solution_grids_index -= 1
             self.paint_solution_matrix(self.solution_grids, self.solution_grids_index)
+
+    def rotate_left(self, widget):
+        self.current_face = (self.current_face+1) % 4
+        self.paint_solution_matrix(self.solution_grids, self.solution_grids_index)
+
+    def rotate_right(self, widget):
+        self.current_face = (self.current_face-1) % 4
+        self.paint_solution_matrix(self.solution_grids, self.solution_grids_index)
+
 
     def show_user_manual(self):
         content_label = self.user_manual_window.get_object("content_label")
         content_label.set_text(utilities.readFile("user_manual.txt"))
 
     def change_selected_color(self, widget, matrix_id, color_id):
-        if(matrix_id == 1):
+        if (matrix_id == 1):
             self.matrix_1_selected_color = utilities.get_matrix_image_name(color_id)
             self.cw_matrix_1_selected_color.set_from_file(self.matrix_1_selected_color)
         else:
@@ -393,7 +414,6 @@ class AppGTK:
         self.matrix_1_yellow_counter = 0
         self.matrix_1_wildcard_counter = 0
 
-
     def clear_matrix_2(self, widget):
         self.cw_ball_2_0_0.set_from_file(None)
         self.cw_ball_2_0_1.set_from_file(None)
@@ -421,8 +441,6 @@ class AppGTK:
         self.matrix_2_yellow_counter = 0
         self.matrix_2_wildcard_counter = 0
 
-
-
     def start_configuration_window(self, widget, config_window, parent_window):
         """ Shows the configuration window.
         parameters:
@@ -431,9 +449,9 @@ class AppGTK:
             [gtk.Object] config_window -- The configuration window object.
             [gtk.Object] config_window -- The start window object(parent).
         """
-        if(config_window and parent_window):
-            #self.load_configuration_matrix(self.start_matrix)
-            #self.load_configuration_matrix(self.end_matrix, 5)
+        if (config_window and parent_window):
+            # self.load_configuration_matrix(self.start_matrix)
+            # self.load_configuration_matrix(self.end_matrix, 5)
             config_window.show()
 
     def start_solution_window(self, widget, solution_window, parent_window):
@@ -444,7 +462,7 @@ class AppGTK:
             [gtk.Object] config_window -- The configuration window object.
             [gtk.Object] config_window -- The start window object(parent).
         """
-        if(solution_window and parent_window):
+        if (solution_window and parent_window):
             print("\nStart matrix")
             print(self.start_matrix)
             print("\nEnd matrix")
@@ -479,7 +497,6 @@ class AppGTK:
         self.cw_toy_images.append(self.configuration_window_builder.get_object("ball9"))
         self.cw_toy_images.append(self.configuration_window_builder.get_object("ball10"))
 
-
     def set_solution_window_images(self):
         self.sw_toy_images.append(self.solution_window_builder.get_object("ball1"))
         self.sw_toy_images.append(self.solution_window_builder.get_object("ball2"))
@@ -487,13 +504,12 @@ class AppGTK:
         self.sw_toy_images.append(self.solution_window_builder.get_object("ball4"))
         self.sw_toy_images.append(self.solution_window_builder.get_object("ball5"))
 
-
     def load_configuration_matrix(self, matrix, number=0):
         index = 0
         for operation_set in matrix:
             image = utilities.get_image_name(operation_set[0])
-            gtk_object = self.cw_toy_images[index+number]
-            gtk_object.set_from_file('img/'+image)
+            gtk_object = self.cw_toy_images[index + number]
+            gtk_object.set_from_file('img/' + image)
             index += 1
 
     def load_solution_matrix(self):
@@ -501,13 +517,12 @@ class AppGTK:
         for operation_set in self.solution_grids[0]:
             image = utilities.get_image_name(operation_set[0])
             gtk_object = self.sw_toy_images[index]
-            gtk_object.set_from_file('img/'+image)
+            gtk_object.set_from_file('img/' + image)
             index += 1
         self.print_step()
 
-
     def configuration_move_right_row(self, widget, id, matrix_number=1):
-        if(matrix_number == 1):
+        if (matrix_number == 1):
             count = len(self.start_matrix[id]) - 1
             last = self.start_matrix[id].pop(count)
             self.start_matrix[id].insert(0, last)
@@ -519,7 +534,7 @@ class AppGTK:
             self.paint_matrix(self.end_matrix, self.cw_toy_images, 5)
 
     def configuration_move_left_row(self, widget, id, matrix_number=1):
-        if(matrix_number == 1):
+        if (matrix_number == 1):
             first = self.start_matrix[id].pop(0)
             self.start_matrix[id].append(first)
             self.paint_matrix(self.start_matrix, self.cw_toy_images)
@@ -528,44 +543,41 @@ class AppGTK:
             self.end_matrix[id].append(first)
             self.paint_matrix(self.end_matrix, self.cw_toy_images, 5)
 
-
     def move_upward(self, widget, matrix_number=1):
-        if(matrix_number == 1):
-            if(utilities.has_upward_moves(self.start_matrix)):
+        if (matrix_number == 1):
+            if (utilities.has_upward_moves(self.start_matrix)):
                 self.start_matrix = utilities.move_upward(self.start_matrix)
                 self.paint_matrix(self.start_matrix, self.cw_toy_images)
             else:
                 print("No moves")
         else:
-            if(utilities.has_upward_moves(self.end_matrix)):
+            if (utilities.has_upward_moves(self.end_matrix)):
                 self.end_matrix = utilities.move_upward(self.end_matrix)
                 self.paint_matrix(self.end_matrix, self.cw_toy_images, 5)
             else:
                 print("No moves")
 
-
     def move_downward(self, widget, matrix_number=1):
-        if(matrix_number == 1):
-            if(utilities.has_downward_moves(self.start_matrix)):
+        if (matrix_number == 1):
+            if (utilities.has_downward_moves(self.start_matrix)):
                 self.start_matrix = utilities.move_downward(self.start_matrix)
                 self.paint_matrix(self.start_matrix, self.cw_toy_images)
             else:
                 print("No moves")
         else:
-            if(utilities.has_downward_moves(self.end_matrix)):
+            if (utilities.has_downward_moves(self.end_matrix)):
                 self.end_matrix = utilities.move_downward(self.end_matrix)
                 self.paint_matrix(self.end_matrix, self.cw_toy_images, 5)
             else:
                 print("No moves")
-
 
     def paint_matrix(self, matrix, images, id=0):
         index = 0
         print("\n")
         for operation_set in matrix:
             image = utilities.get_image_name(operation_set[0])
-            gtk_object = images[index+id]
-            gtk_object.set_from_file('img/'+image)
+            gtk_object = images[index + id]
+            gtk_object.set_from_file('img/' + image)
             index += 1
             print(operation_set)
 
@@ -573,9 +585,9 @@ class AppGTK:
         index = 0
         print("\n")
         for operation_set in matrix[id]:
-            image = utilities.get_image_name(operation_set[0])
+            image = utilities.get_image_name(operation_set[self.current_face])
             gtk_object = self.sw_toy_images[index]
-            gtk_object.set_from_file('img/'+image)
+            gtk_object.set_from_file('img/' + image)
             index += 1
             print(operation_set)
 
