@@ -3,7 +3,7 @@ import pygtk
 pygtk.require("2.0")
 import gtk
 import utilities
-import file_parser
+import file
 import os.path
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir))
 import core.babylon_node
@@ -16,8 +16,8 @@ class AppGTK:
         parameters:
             [AppGTK] self -- the self instance.
         """
-        self.startMatrix1 = [['*', '-', '-', '-'], ['B', 'R', 'Y', 'G'], ['B', 'Y', 'R', 'G'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y']]
-        self.startMatrix2 = [['*', '-', '-', '-'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y']]
+        self.start_matrix = [['*', '-', '-', '-'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y']]
+        self.end_matrix = [['*', '-', '-', '-'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y']]
         self.current_index_row_0 = 0
         self.current_index_row_1 = 0
         self.current_index_row_2 = 0
@@ -102,11 +102,12 @@ class AppGTK:
 
     def open_config_from_file(self, widget):
         file_name = self.open_file_dialog.get_filename()
-        if(file_name):
-            data = file_parser.parse_file(file_name)
-            self.startMatrix1 = data
-            self.load_congiguration_matrix(self.startMatrix1)
-            self.load_congiguration_matrix(self.startMatrix2, 5)
+        if (file_name):
+            start, end = file.load(file_name)
+            self.start_matrix = start
+            self.end_matrix = end
+            self.load_configuration_matrix(self.start_matrix)
+            self.load_configuration_matrix(self.end_matrix, 5)
             self.configuration_window.show()
 
     def set_configuration_window_buttons(self):
@@ -189,8 +190,8 @@ class AppGTK:
             [gtk.Object] config_window -- The start window object(parent).
         """
         if(config_window and parent_window):
-            #self.load_congiguration_matrix(self.startMatrix1)
-            #self.load_congiguration_matrix(self.startMatrix2, 5)
+            #self.load_configuration_matrix(self.start_matrix)
+            #self.load_configuration_matrix(self.end_matrix, 5)
             config_window.show()
 
     def start_solution_window(self, widget, solution_window, parent_window):
@@ -203,8 +204,8 @@ class AppGTK:
         """
         if(solution_window and parent_window):
             self.loading_window.show()
-            start = core.babylon_node.BabylonNode(self.startMatrix1)
-            goal = core.babylon_node.BabylonNode(self.startMatrix2)
+            start = core.babylon_node.BabylonNode(self.start_matrix)
+            goal = core.babylon_node.BabylonNode(self.end_matrix)
             algorithm = core.astar.AStar()
             nodes = algorithm.nodes_between(start, goal)
             self.movements = [node.movement for node in nodes[1:]] if len(nodes) > 1 else []
@@ -240,7 +241,7 @@ class AppGTK:
         self.sw_toy_images.append(self.solution_window_builder.get_object("ball5"))
 
 
-    def load_congiguration_matrix(self, matrix, number=0):
+    def load_configuration_matrix(self, matrix, number=0):
         index = 0
         for operation_set in matrix:
             image = utilities.get_image_name(operation_set[0])
@@ -260,53 +261,53 @@ class AppGTK:
 
     def configuration_move_right_row(self, widget, id, matrix_number=1):
         if(matrix_number == 1):
-            count = len(self.startMatrix1[id]) - 1
-            last = self.startMatrix1[id].pop(count)
-            self.startMatrix1[id].insert(0, last)
-            self.paint_matrix(self.startMatrix1, self.cw_toy_images)
+            count = len(self.start_matrix[id]) - 1
+            last = self.start_matrix[id].pop(count)
+            self.start_matrix[id].insert(0, last)
+            self.paint_matrix(self.start_matrix, self.cw_toy_images)
         else:
-            count = len(self.startMatrix2[id]) - 1
-            last = self.startMatrix2[id].pop(count)
-            self.startMatrix2[id].insert(0, last)
-            self.paint_matrix(self.startMatrix2, self.cw_toy_images, 5)
+            count = len(self.end_matrix[id]) - 1
+            last = self.end_matrix[id].pop(count)
+            self.end_matrix[id].insert(0, last)
+            self.paint_matrix(self.end_matrix, self.cw_toy_images, 5)
 
     def configuration_move_left_row(self, widget, id, matrix_number=1):
         if(matrix_number == 1):
-            first = self.startMatrix1[id].pop(0)
-            self.startMatrix1[id].append(first)
-            self.paint_matrix(self.startMatrix1, self.cw_toy_images)
+            first = self.start_matrix[id].pop(0)
+            self.start_matrix[id].append(first)
+            self.paint_matrix(self.start_matrix, self.cw_toy_images)
         else:
-            first = self.startMatrix2[id].pop(0)
-            self.startMatrix2[id].append(first)
-            self.paint_matrix(self.startMatrix2, self.cw_toy_images, 5)
+            first = self.end_matrix[id].pop(0)
+            self.end_matrix[id].append(first)
+            self.paint_matrix(self.end_matrix, self.cw_toy_images, 5)
 
 
     def move_upward(self, widget, matrix_number=1):
         if(matrix_number == 1):
-            if(utilities.has_upward_moves(self.startMatrix1)):
-                self.startMatrix1 = utilities.move_upward(self.startMatrix1)
-                self.paint_matrix(self.startMatrix1, self.cw_toy_images)
+            if(utilities.has_upward_moves(self.start_matrix)):
+                self.start_matrix = utilities.move_upward(self.start_matrix)
+                self.paint_matrix(self.start_matrix, self.cw_toy_images)
             else:
                 print("No moves")
         else:
-            if(utilities.has_upward_moves(self.startMatrix2)):
-                self.startMatrix2 = utilities.move_upward(self.startMatrix2)
-                self.paint_matrix(self.startMatrix2, self.cw_toy_images, 5)
+            if(utilities.has_upward_moves(self.end_matrix)):
+                self.end_matrix = utilities.move_upward(self.end_matrix)
+                self.paint_matrix(self.end_matrix, self.cw_toy_images, 5)
             else:
                 print("No moves")
 
 
     def move_downward(self, widget, matrix_number=1):
         if(matrix_number == 1):
-            if(utilities.has_downward_moves(self.startMatrix1)):
-                self.startMatrix1 = utilities.move_downward(self.startMatrix1)
-                self.paint_matrix(self.startMatrix1, self.cw_toy_images)
+            if(utilities.has_downward_moves(self.start_matrix)):
+                self.start_matrix = utilities.move_downward(self.start_matrix)
+                self.paint_matrix(self.start_matrix, self.cw_toy_images)
             else:
                 print("No moves")
         else:
-            if(utilities.has_downward_moves(self.startMatrix2)):
-                self.startMatrix2 = utilities.move_downward(self.startMatrix2)
-                self.paint_matrix(self.startMatrix2, self.cw_toy_images, 5)
+            if(utilities.has_downward_moves(self.end_matrix)):
+                self.end_matrix = utilities.move_downward(self.end_matrix)
+                self.paint_matrix(self.end_matrix, self.cw_toy_images, 5)
             else:
                 print("No moves")
 
