@@ -373,6 +373,7 @@ class AppGTK:
 
 
     def show_user_manual(self):
+        print("Hello")
         content_label = self.user_manual_window.get_object("content_label")
         content_label.set_text(utilities.readFile("user_manual.txt"))
 
