@@ -11,6 +11,24 @@ sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), os.par
 import core.babylon_node
 import core.astar
 
+class NestedDialog(object):
+    def __init__(self, dialog):
+        self.dialog = dialog
+        self.response_var = None
+
+    def run(self):
+        self._run()
+        return self.response_var
+
+    def _run(self):
+        self.dialog.show()
+        self.dialog.connect("response", self._response)
+        gtk.main()
+
+    def _response(self, dialog, response):
+        self.response_var = response
+        self.dialog.destroy()
+        gtk.main_quit()
 
 class AppGTK:
     """ Class that handles the graphic user interface components. """
@@ -20,10 +38,8 @@ class AppGTK:
         parameters:
             [AppGTK] self -- the self instance.
         """
-        self.start_matrix = [['*', '-', '-', '-'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'],
-                             ['R', 'G', 'B', 'Y']]
-        self.end_matrix = [['*', '-', '-', '-'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'], ['R', 'G', 'B', 'Y'],
-                           ['R', 'G', 'B', 'Y']]
+        self.start_matrix = [['*', '*', '*', '*'], ['*', '*', '*', '*'], ['*', '*', '*', '*'], ['*', '*', '*', '*'], ['*', '*', '*', '*']]
+        self.end_matrix = [['*', '*', '*', '*'], ['*', '*', '*', '*'], ['*', '*', '*', '*'], ['*', '*', '*', '*'], ['*', '*', '*', '*']]
         self.current_index_row_0 = 0
         self.current_index_row_1 = 0
         self.current_index_row_2 = 0
@@ -33,18 +49,48 @@ class AppGTK:
         self.solution_grids_index = 0
         self.indexes = [self.current_index_row_0, self.current_index_row_1, self.current_index_row_2,
                         self.current_index_row_3, self.current_index_row_4]
-        self.matrix_1_selected_color = ""
-        self.matrix_2_selected_color = ""
-        self.matrix_1_red_counter = 0
-        self.matrix_1_green_counter = 0
-        self.matrix_1_blue_counter = 0
-        self.matrix_1_yellow_counter = 0
-        self.matrix_1_wildcard_counter = 0
-        self.matrix_2_red_counter = 0
-        self.matrix_2_green_counter = 0
-        self.matrix_2_blue_counter = 0
-        self.matrix_2_yellow_counter = 0
-        self.matrix_2_wildcard_counter = 0
+
+        self.matrix_info = {
+            1: {
+                "selected_color": "",
+                "red_counter": 0,
+                "green_counter": 0,
+                "blue_counter": 0,
+                "yellow_counter": 0,
+                "blocked_counter": 0,
+                "wildcard_counter": 20,
+                "matrix": self.start_matrix
+            },
+            2: {
+                "selected_color": "",
+                "red_counter": 0,
+                "green_counter": 0,
+                "blue_counter": 0,
+                "yellow_counter": 0,
+                "blocked_counter": 0,
+                "wildcard_counter": 20,
+                "matrix": self.end_matrix
+            }
+        }
+
+        self.color_counter = {
+            'R': "red_counter",
+            'G': "green_counter",
+            'B': "blue_counter",
+            'Y': "yellow_counter",
+            '-': "blocked_counter",
+            '*': "wildcard_counter"
+        }
+
+        self.color_amount = {
+            'R': 4,
+            'G': 4,
+            'B': 4,
+            'Y': 4,
+            '-': 3,
+            '*': 20
+        }
+
         self.cw_toy_images = []
         self.sw_toy_images = []
         self.current_face = 0
@@ -150,7 +196,7 @@ class AppGTK:
         self.cw_matrix_1_select_yellow = self.configuration_window_builder.get_object("select_yellow_ball_button_1")
         self.cw_matrix_1_select_yellow.connect("clicked", self.change_selected_color, 1, 'Y')
         self.cw_matrix_1_select_widlcard = self.configuration_window_builder.get_object("select_wildcard_button_1")
-        self.cw_matrix_1_select_widlcard.connect("clicked", self.change_selected_color, 1, '*')
+        self.cw_matrix_1_select_widlcard.connect("clicked", self.change_selected_color, 1, '-')
         self.cw_matrix_2_select_red = self.configuration_window_builder.get_object("select_red_ball_button_2")
         self.cw_matrix_2_select_red.connect("clicked", self.change_selected_color, 2, 'R')
         self.cw_matrix_2_select_green = self.configuration_window_builder.get_object("select_green_ball_button_2")
@@ -160,7 +206,7 @@ class AppGTK:
         self.cw_matrix_2_select_yellow = self.configuration_window_builder.get_object("select_yellow_ball_button_2")
         self.cw_matrix_2_select_yellow.connect("clicked", self.change_selected_color, 2, 'Y')
         self.cw_matrix_2_select_widlcard = self.configuration_window_builder.get_object("select_wildcard_button_2")
-        self.cw_matrix_2_select_widlcard.connect("clicked", self.change_selected_color, 2, '*')
+        self.cw_matrix_2_select_widlcard.connect("clicked", self.change_selected_color, 2, '-')
 
         # Matrix buttons
         self.cw_matrix_1_0_0 = self.configuration_window_builder.get_object("matrix_1_0_0")
@@ -331,61 +377,37 @@ class AppGTK:
         content_label.set_text(utilities.readFile("user_manual.txt"))
 
     def change_selected_color(self, widget, matrix_id, color_id):
+        self.matrix_info[matrix_id]["selected_color"] = utilities.get_matrix_image_name(color_id)
         if (matrix_id == 1):
-            self.matrix_1_selected_color = utilities.get_matrix_image_name(color_id)
-            self.cw_matrix_1_selected_color.set_from_file(self.matrix_1_selected_color)
+            self.cw_matrix_1_selected_color.set_from_file(self.matrix_info[matrix_id]["selected_color"])
         else:
-            self.matrix_2_selected_color = utilities.get_matrix_image_name(color_id)
-            self.cw_matrix_2_selected_color.set_from_file(self.matrix_2_selected_color)
+            self.cw_matrix_2_selected_color.set_from_file(self.matrix_info[matrix_id]["selected_color"])
 
     def put_selected_color(self, widget, matrix_id, image_object, row, col):
-        if matrix_id == 1:
-            selected_color = utilities.get_operation_name(self.matrix_1_selected_color)
-            if selected_color == 'R':
-                if self.matrix_1_red_counter < 4:
-                    image_object.set_from_file(utilities.get_matrix_image_name('R'))
-                    self.matrix_1_red_counter += 1
-            elif selected_color == 'G':
-                if self.matrix_1_green_counter < 4:
-                    image_object.set_from_file(utilities.get_matrix_image_name('G'))
-                    self.matrix_1_green_counter += 1
-            elif selected_color == 'B':
-                if self.matrix_1_blue_counter < 4:
-                    image_object.set_from_file(utilities.get_matrix_image_name('B'))
-                    self.matrix_1_blue_counter += 1
-            elif selected_color == 'Y':
-                if self.matrix_1_yellow_counter < 4:
-                    image_object.set_from_file(utilities.get_matrix_image_name('Y'))
-                    self.matrix_1_yellow_counter += 1
-            elif selected_color == '*':
-                if self.matrix_1_wildcard_counter < 1:
-                    image_object.set_from_file(utilities.get_matrix_image_name('*'))
-                    self.matrix_1_wildcard_counter += 1
-            self.start_matrix[row][col] = selected_color
+        if row < 0 or row > 4 or col < 0 or col > 3:
+            return
 
-        else:
-            selected_color = utilities.get_operation_name(self.matrix_2_selected_color)
-            if selected_color == 'R':
-                if self.matrix_2_red_counter < 4:
-                    image_object.set_from_file(utilities.get_matrix_image_name('R'))
-                    self.matrix_2_red_counter += 1
-            if selected_color == 'G':
-                if self.matrix_2_green_counter < 4:
-                    image_object.set_from_file(utilities.get_matrix_image_name('G'))
-                    self.matrix_2_green_counter += 1
-            if selected_color == 'B':
-                if self.matrix_2_blue_counter < 4:
-                    image_object.set_from_file(utilities.get_matrix_image_name('B'))
-                    self.matrix_2_blue_counter += 1
-            if selected_color == 'Y':
-                if self.matrix_2_yellow_counter < 4:
-                    image_object.set_from_file(utilities.get_matrix_image_name('Y'))
-                    self.matrix_2_yellow_counter += 1
-            if selected_color == '*':
-                if self.matrix_2_wildcard_counter < 1:
-                    image_object.set_from_file(utilities.get_matrix_image_name('*'))
-                    self.matrix_2_wildcard_counter += 1
-            self.end_matrix[row][col] = selected_color
+        selected_color = utilities.get_operation_name(self.matrix_info[matrix_id]["selected_color"])
+        selected_counter = self.color_counter[selected_color]
+
+        current_color = self.matrix_info[matrix_id]["matrix"][row][col]
+        current_counter = self.color_counter[current_color]
+
+        if current_color == selected_color:
+            self.matrix_info[matrix_id][current_counter] -= 1
+            self.matrix_info[matrix_id]["matrix"][row][col] = "*"
+            image_object.clear()
+
+        elif self.matrix_info[matrix_id][selected_counter] < self.color_amount[selected_color]:
+            if selected_color == '-' and row != 0:
+                return
+
+            if current_color != '*':
+                self.matrix_info[matrix_id][current_counter] -= 1
+
+            image_object.set_from_file(utilities.get_matrix_image_name(selected_color))
+            self.matrix_info[matrix_id][selected_counter] += 1
+            self.matrix_info[matrix_id]["matrix"][row][col] = selected_color
 
     def clear_matrix_1(self, widget):
         self.cw_ball_1_0_0.set_from_file(None)
@@ -454,6 +476,13 @@ class AppGTK:
             # self.load_configuration_matrix(self.end_matrix, 5)
             config_window.show()
 
+    def show_dialog(self, message):
+        dialog = gtk.MessageDialog(None,
+            gtk.DIALOG_MODAL, gtk.MESSAGE_ERROR,
+            gtk.BUTTONS_OK, message)
+        nested_dialog = NestedDialog(dialog)
+        nested_dialog.run()
+
     def start_solution_window(self, widget, solution_window, parent_window):
         """ Shows the solution window.
         parameters:
@@ -463,6 +492,14 @@ class AppGTK:
             [gtk.Object] config_window -- The start window object(parent).
         """
         if (solution_window and parent_window):
+            if not utilities.is_valid_configuration(self.start_matrix):
+                self.show_dialog("Configuracion inicial invalida")
+                return
+
+            if not utilities.is_valid_configuration(self.end_matrix):
+                self.show_dialog("Configuracion final invalida")
+                return
+
             print("\nStart matrix")
             print(self.start_matrix)
             print("\nEnd matrix")

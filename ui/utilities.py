@@ -3,6 +3,26 @@ def read_file(name):
     text_file = open(name, "r")
     return text_file.read()
 
+def is_valid_configuration(matrix):
+    counter = {'R': 0, 'G': 0, 'B': 0, 'Y': 0, '-': 0, '*': 0}
+
+    if len(matrix) != 5:
+        return False
+
+    for row in matrix:
+        if len(row) != 4:
+            return False
+        for cell in row:
+            counter[cell] += 1
+
+    if matrix[0].count('-') != 3:
+        return False
+
+    if counter['R'] != 4 or counter['G'] != 4 or counter['B'] != 4 or counter['Y'] != 4 or counter['-'] != 3 or counter['*'] != 1:
+        return False
+
+    return True
+
 def get_image_name(operation):
     images = {
         'R': 'red_ball.png',
@@ -56,7 +76,7 @@ def move_upward(matrix):
                 matrix[count + 1].insert(0, wildcard)
                 return matrix
         count += 1
-        
+
 
 def has_downward_moves(matrix):
     count = 0
