@@ -1,5 +1,5 @@
 import json
-values = ['*', '-', 'R', 'G', 'B', 'Y']
+
 
 def save(path, start_matrix, end_matrix):
     """Save a configuration to a file.
@@ -76,6 +76,7 @@ def validate_values(matrix):
     """
     errors = ""
     row_in = 1
+    values = ['*', '-', 'R', 'G', 'B', 'Y']
     for row in matrix:
             for value in row:
                 if (value in values)==False:
