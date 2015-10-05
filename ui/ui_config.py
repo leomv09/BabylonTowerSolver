@@ -556,6 +556,7 @@ class AppGTK:
             array = self.cw_toy_images_2
         for i in range(0, 5):
             for j in range(0, 4):
+                self.matrix_info[matrix_id][self.color_counter[matrix[i][j]]] += 1
                 image = utilities.get_matrix_image_name(matrix[i][j])
                 gtk_object = array[i][j]
                 gtk_object.set_from_file(image)

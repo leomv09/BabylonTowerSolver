@@ -40,7 +40,7 @@ def get_matrix_image_name(color_id):
         'G': 'img/green_ball_small.png',
         'B': 'img/blue_ball_small.png',
         'Y': 'img/yellow_ball_small.png',
-        '*': 'img/wildcard_small.png',
+        '*': None,
         '-': 'img/plastic_cover_small.png'
     }
     return images.get(color_id)
