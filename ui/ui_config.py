@@ -105,9 +105,8 @@ class AppGTK:
         """
         self.create_configuration_button = self.start_window_builder.get_object("menu_button_create_config")
         self.open_file_dialog = self.start_window_builder.get_object("file_chooser_button")
-        self.load_file_button = self.start_window_builder.get_object("load_file_button")
         self.set_filter()
-        self.load_file_button.connect("clicked", self.open_config_from_file)
+        self.open_file_dialog.connect("file-set", self.open_config_from_file)
         if (self.create_configuration_button):
             self.create_configuration_button.connect("clicked", self.start_configuration_window,
                                                      self.configuration_window, self.main_window)
@@ -124,8 +123,8 @@ class AppGTK:
             start, end = file.load(file_name)
             self.start_matrix = start
             self.end_matrix = end
-            self.load_configuration_matrix(self.start_matrix)
-            self.load_configuration_matrix(self.end_matrix, 5)
+            self.load_configuration_matrix(self.start_matrix, 1)
+            self.load_configuration_matrix(self.end_matrix, 2)
             self.configuration_window.show()
 
     def set_configuration_window_buttons(self):
@@ -285,6 +284,7 @@ class AppGTK:
         self.cw_matrix_2_4_3 = self.configuration_window_builder.get_object("matrix_2_4_3")
         self.cw_ball_2_4_3 = self.configuration_window_builder.get_object("ball_2_4_3")
         self.cw_matrix_2_4_3.connect("clicked", self.put_selected_color, 2, self.cw_ball_2_4_3, 4, 3)
+
 
     def set_solution_window_buttons(self):
         """ Obtains all the buttons from the solution XML file
@@ -486,16 +486,17 @@ class AppGTK:
             parent_window.destroy()
 
     def set_configuration_window_images(self):
-        self.cw_toy_images.append(self.configuration_window_builder.get_object("ball1"))
-        self.cw_toy_images.append(self.configuration_window_builder.get_object("ball2"))
-        self.cw_toy_images.append(self.configuration_window_builder.get_object("ball3"))
-        self.cw_toy_images.append(self.configuration_window_builder.get_object("ball4"))
-        self.cw_toy_images.append(self.configuration_window_builder.get_object("ball5"))
-        self.cw_toy_images.append(self.configuration_window_builder.get_object("ball6"))
-        self.cw_toy_images.append(self.configuration_window_builder.get_object("ball7"))
-        self.cw_toy_images.append(self.configuration_window_builder.get_object("ball8"))
-        self.cw_toy_images.append(self.configuration_window_builder.get_object("ball9"))
-        self.cw_toy_images.append(self.configuration_window_builder.get_object("ball10"))
+        self.cw_toy_images_1 =[[self.cw_ball_1_0_0, self.cw_ball_1_0_1, self.cw_ball_1_0_2, self.cw_ball_1_0_3],
+                              [self.cw_ball_1_1_0, self.cw_ball_1_1_1, self.cw_ball_1_1_2, self.cw_ball_1_1_3],
+                              [self.cw_ball_1_2_0, self.cw_ball_1_2_1, self.cw_ball_1_2_2, self.cw_ball_1_2_3],
+                              [self.cw_ball_1_3_0, self.cw_ball_1_3_1, self.cw_ball_1_3_2, self.cw_ball_1_3_3],
+                              [self.cw_ball_1_4_0, self.cw_ball_1_4_1, self.cw_ball_1_4_2, self.cw_ball_1_4_3]]
+
+        self.cw_toy_images_2 =[[self.cw_ball_2_0_0, self.cw_ball_2_0_1, self.cw_ball_2_0_2, self.cw_ball_2_0_3],
+                              [self.cw_ball_2_1_0, self.cw_ball_2_1_1, self.cw_ball_2_1_2, self.cw_ball_2_1_3],
+                              [self.cw_ball_2_2_0, self.cw_ball_2_2_1, self.cw_ball_2_2_2, self.cw_ball_2_2_3],
+                              [self.cw_ball_2_3_0, self.cw_ball_2_3_1, self.cw_ball_2_3_2, self.cw_ball_2_3_3],
+                              [self.cw_ball_2_4_0, self.cw_ball_2_4_1, self.cw_ball_2_4_2, self.cw_ball_2_4_3]]
 
     def set_solution_window_images(self):
         self.sw_toy_images.append(self.solution_window_builder.get_object("ball1"))
@@ -504,13 +505,17 @@ class AppGTK:
         self.sw_toy_images.append(self.solution_window_builder.get_object("ball4"))
         self.sw_toy_images.append(self.solution_window_builder.get_object("ball5"))
 
-    def load_configuration_matrix(self, matrix, number=0):
-        index = 0
-        for operation_set in matrix:
-            image = utilities.get_image_name(operation_set[0])
-            gtk_object = self.cw_toy_images[index + number]
-            gtk_object.set_from_file('img/' + image)
-            index += 1
+    def load_configuration_matrix(self, matrix, matrix_id):
+        i = 0
+        j = 0
+        array = self.cw_toy_images_1
+        if(matrix_id == 2):
+            array = self.cw_toy_images_2
+        for i in range(0, 5):
+            for j in range(0, 4):
+                image = utilities.get_matrix_image_name(matrix[i][j])
+                gtk_object = array[i][j]
+                gtk_object.set_from_file(image)
 
     def load_solution_matrix(self):
         index = 0
@@ -521,55 +526,6 @@ class AppGTK:
             index += 1
         self.print_step()
 
-    def configuration_move_right_row(self, widget, id, matrix_number=1):
-        if (matrix_number == 1):
-            count = len(self.start_matrix[id]) - 1
-            last = self.start_matrix[id].pop(count)
-            self.start_matrix[id].insert(0, last)
-            self.paint_matrix(self.start_matrix, self.cw_toy_images)
-        else:
-            count = len(self.end_matrix[id]) - 1
-            last = self.end_matrix[id].pop(count)
-            self.end_matrix[id].insert(0, last)
-            self.paint_matrix(self.end_matrix, self.cw_toy_images, 5)
-
-    def configuration_move_left_row(self, widget, id, matrix_number=1):
-        if (matrix_number == 1):
-            first = self.start_matrix[id].pop(0)
-            self.start_matrix[id].append(first)
-            self.paint_matrix(self.start_matrix, self.cw_toy_images)
-        else:
-            first = self.end_matrix[id].pop(0)
-            self.end_matrix[id].append(first)
-            self.paint_matrix(self.end_matrix, self.cw_toy_images, 5)
-
-    def move_upward(self, widget, matrix_number=1):
-        if (matrix_number == 1):
-            if (utilities.has_upward_moves(self.start_matrix)):
-                self.start_matrix = utilities.move_upward(self.start_matrix)
-                self.paint_matrix(self.start_matrix, self.cw_toy_images)
-            else:
-                print("No moves")
-        else:
-            if (utilities.has_upward_moves(self.end_matrix)):
-                self.end_matrix = utilities.move_upward(self.end_matrix)
-                self.paint_matrix(self.end_matrix, self.cw_toy_images, 5)
-            else:
-                print("No moves")
-
-    def move_downward(self, widget, matrix_number=1):
-        if (matrix_number == 1):
-            if (utilities.has_downward_moves(self.start_matrix)):
-                self.start_matrix = utilities.move_downward(self.start_matrix)
-                self.paint_matrix(self.start_matrix, self.cw_toy_images)
-            else:
-                print("No moves")
-        else:
-            if (utilities.has_downward_moves(self.end_matrix)):
-                self.end_matrix = utilities.move_downward(self.end_matrix)
-                self.paint_matrix(self.end_matrix, self.cw_toy_images, 5)
-            else:
-                print("No moves")
 
     def paint_matrix(self, matrix, images, id=0):
         index = 0
