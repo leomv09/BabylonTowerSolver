@@ -6,10 +6,13 @@ import gtk
 import utilities
 import file
 import os.path
+import time
+import datetime
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir))
 import core.babylon_node
 import core.astar
+
 
 class NestedDialog(object):
     def __init__(self, dialog):
@@ -350,6 +353,8 @@ class AppGTK:
         self.sow_rotate_left_button.connect("clicked", self.rotate_left)
         self.sow_rotate_right_button = self.solution_window_builder.get_object("rotate_right_button")
         self.sow_rotate_right_button.connect("clicked", self.rotate_right)
+        self.sow_save_config_button = self.solution_window_builder.get_object("save_config_button")
+        self.sow_save_config_button.connect("clicked", self.save_config)
 
     def show_next_solution(self, widget):
         if (not self.movement_index + 1 > len(self.movements) - 1):
@@ -374,6 +379,14 @@ class AppGTK:
     def rotate_right(self, widget):
         self.current_face = (self.current_face-1) % 4
         self.paint_solution_matrix(self.solution_grids, self.solution_grids_index)
+
+    def save_config(self, widget):
+        print("Document saved")
+        ts = time.time()
+        timestamp = datetime.datetime.fromtimestamp(ts).strftime('%Y_%m_%d__%H_%M_%S.txt')
+        initial = self.solution_grids[self.solution_grids_index]
+        file.save("Solution_" + timestamp, initial, self.end_matrix)
+        self.show_dialog("Archivo de configuracion guardado")
 
     def show_user_manual(self, widget, help_window, parent_window):
         """ Shows the configuration window.
