@@ -119,6 +119,7 @@ class AppGTK:
         self.user_manual_window = self.user_manual_window_builder.get_object("main_window")
         self.description_label = self.solution_window_builder.get_object("steps_description_label")
         self.help_label = self.user_manual_window_builder.get_object("help_content")
+        self.error_label = self.start_window_builder.get_object("error_label")
 
         self.connect_windows_signals()
         self.set_start_window_buttons()
@@ -173,12 +174,16 @@ class AppGTK:
     def open_config_from_file(self, widget):
         file_name = self.open_file_dialog.get_filename()
         if (file_name):
-            start, end = file.load(file_name)
-            self.start_matrix = start
-            self.end_matrix = end
-            self.load_configuration_matrix(self.start_matrix, 1)
-            self.load_configuration_matrix(self.end_matrix, 2)
-            self.configuration_window.show()
+            start, end, errors = file.load(file_name)
+            if len(errors.splitlines()) > 3:
+                self.error_label.set_text(errors)
+            else:
+                self.error_label.set_text("")
+                self.start_matrix = start
+                self.end_matrix = end
+                self.load_configuration_matrix(self.start_matrix, 1)
+                self.load_configuration_matrix(self.end_matrix, 2)
+                self.configuration_window.show()
 
     def set_configuration_window_buttons(self):
         """ Obtains all the buttons from the configuration window XML file.
