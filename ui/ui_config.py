@@ -115,6 +115,7 @@ class AppGTK:
         self.loading_window = self.loading_window_builder.get_object("main_window")
         self.user_manual_window = self.user_manual_window_builder.get_object("main_window")
         self.description_label = self.solution_window_builder.get_object("steps_description_label")
+        self.help_label = self.user_manual_window_builder.get_object("help_content")
 
         self.connect_windows_signals()
         self.set_start_window_buttons()
@@ -149,6 +150,7 @@ class AppGTK:
         parameters:
             [AppGTK] self -- the self instance.
         """
+        self.help = self.start_window_builder.get_object("ayuda")
         self.create_configuration_button = self.start_window_builder.get_object("menu_button_create_config")
         self.open_file_dialog = self.start_window_builder.get_object("file_chooser_button")
         self.set_filter()
@@ -156,6 +158,8 @@ class AppGTK:
         if (self.create_configuration_button):
             self.create_configuration_button.connect("clicked", self.start_configuration_window,
                                                      self.configuration_window, self.main_window)
+        if self.help:
+            self.help.connect("clicked", self.show_user_manual, self.user_manual_window, self.main_window)
 
     def set_filter(self):
         filter = gtk.FileFilter()
@@ -371,11 +375,19 @@ class AppGTK:
         self.current_face = (self.current_face-1) % 4
         self.paint_solution_matrix(self.solution_grids, self.solution_grids_index)
 
-
-    def show_user_manual(self):
+    def show_user_manual(self, widget, help_window, parent_window):
+        """ Shows the configuration window.
+        parameters:
+            [AppGTK] self -- the self instance.
+            [gtk.Widget] widget -- the widget event.
+            [gtk.Object] config_window -- The configuration window object.
+            [gtk.Object] config_window -- The start window object(parent).
+        """
         print("Hello")
-        content_label = self.user_manual_window.get_object("content_label")
-        content_label.set_text(utilities.readFile("user_manual.txt"))
+        if help_window and parent_window:
+            print(help_window)
+            self.help_label.set_text(utilities.read_file("user_manual.txt"))
+            help_window.show()
 
     def change_selected_color(self, widget, matrix_id, color_id):
         self.matrix_info[matrix_id]["selected_color"] = utilities.get_matrix_image_name(color_id)
