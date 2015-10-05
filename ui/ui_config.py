@@ -383,9 +383,7 @@ class AppGTK:
             [gtk.Object] config_window -- The configuration window object.
             [gtk.Object] config_window -- The start window object(parent).
         """
-        print("Hello")
         if help_window and parent_window:
-            print(help_window)
             self.help_label.set_text(utilities.read_file("user_manual.txt"))
             help_window.show()
 
