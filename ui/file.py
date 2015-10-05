@@ -142,4 +142,3 @@ def validate_amount_balls(matrix):
     return errors
 
 
-load("test.txt")
