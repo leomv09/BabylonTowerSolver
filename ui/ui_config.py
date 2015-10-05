@@ -430,11 +430,14 @@ class AppGTK:
         self.cw_ball_1_4_1.set_from_file(None)
         self.cw_ball_1_4_2.set_from_file(None)
         self.cw_ball_1_4_3.set_from_file(None)
-        self.matrix_1_red_counter = 0
-        self.matrix_1_green_counter = 0
-        self.matrix_1_blue_counter = 0
-        self.matrix_1_yellow_counter = 0
-        self.matrix_1_wildcard_counter = 0
+        self.matrix_info[1]["red_counter"] = 0
+        self.matrix_info[1]["green_counter"] = 0
+        self.matrix_info[1]["blue_counter"] = 0
+        self.matrix_info[1]["yellow_counter"] = 0
+        self.matrix_info[1]["blocked_counter"] = 0
+        self.matrix_info[1]["wildcard_counter"] = 20
+        self.start_matrix = [['*', '*', '*', '*'], ['*', '*', '*', '*'], ['*', '*', '*', '*'], ['*', '*', '*', '*'], ['*', '*', '*', '*']]
+        self.matrix_info[1]["matrix"] = self.start_matrix
 
     def clear_matrix_2(self, widget):
         self.cw_ball_2_0_0.set_from_file(None)
@@ -457,11 +460,14 @@ class AppGTK:
         self.cw_ball_2_4_1.set_from_file(None)
         self.cw_ball_2_4_2.set_from_file(None)
         self.cw_ball_2_4_3.set_from_file(None)
-        self.matrix_2_red_counter = 0
-        self.matrix_2_green_counter = 0
-        self.matrix_2_blue_counter = 0
-        self.matrix_2_yellow_counter = 0
-        self.matrix_2_wildcard_counter = 0
+        self.matrix_info[2]["red_counter"] = 0
+        self.matrix_info[2]["green_counter"] = 0
+        self.matrix_info[2]["blue_counter"] = 0
+        self.matrix_info[2]["yellow_counter"] = 0
+        self.matrix_info[2]["blocked_counter"] = 0
+        self.matrix_info[2]["wildcard_counter"] = 20
+        self.end_matrix = [['*', '*', '*', '*'], ['*', '*', '*', '*'], ['*', '*', '*', '*'], ['*', '*', '*', '*'], ['*', '*', '*', '*']]
+        self.end_matrix[2]["matrix"] = self.end_matrix
 
     def start_configuration_window(self, widget, config_window, parent_window):
         """ Shows the configuration window.
